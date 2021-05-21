@@ -1,0 +1,12 @@
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\bin\Debug\netcoreapp3.1\PackagesData.deps.json
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\bin\Debug\netcoreapp3.1\PackagesData.runtimeconfig.json
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\bin\Debug\netcoreapp3.1\PackagesData.runtimeconfig.dev.json
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\bin\Debug\netcoreapp3.1\PackagesData.dll
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\bin\Debug\netcoreapp3.1\PackagesData.pdb
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\obj\Debug\netcoreapp3.1\PackagesData.csprojAssemblyReference.cache
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\obj\Debug\netcoreapp3.1\PackagesData.AssemblyInfoInputs.cache
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\obj\Debug\netcoreapp3.1\PackagesData.AssemblyInfo.cs
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\obj\Debug\netcoreapp3.1\PackagesData.csproj.CoreCompileInputs.cache
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\obj\Debug\netcoreapp3.1\PackagesData.dll
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\obj\Debug\netcoreapp3.1\PackagesData.pdb
+C:\Users\nansy\source\repos\Packages_Workshop4\Packages\obj\Debug\netcoreapp3.1\PackagesData.genruntimeconfig.cache
