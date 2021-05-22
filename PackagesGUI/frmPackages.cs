@@ -151,19 +151,23 @@ namespace PackagesGUI
                 {
                     var newPackage = context.Packages.Add(selectedPackage);
                     context.SaveChanges();
-                    //adding associated products
-                    foreach (var item in selectedProductsIds)
+                    //adding associated products only if added
+                    if (selectedProductsIds != null)
                     {
-                        //creating the corresponding entry for each selected product
-                        //in the PackagesProductsSuppliers table
-                        PackagesProductsSuppliers pkgProdsup = new PackagesProductsSuppliers();
-                        pkgProdsup.ProductSupplierId = item;                     
-                        int id = selectedPackage.PackageId;
-                        pkgProdsup.PackageId = id;
-                        context.PackagesProductsSuppliers.Add(pkgProdsup);
+                        foreach (var item in selectedProductsIds)
+                        {
+                            //creating the corresponding entry for each selected product
+                            //in the PackagesProductsSuppliers table
+                            PackagesProductsSuppliers pkgProdsup = new PackagesProductsSuppliers();
+                            pkgProdsup.ProductSupplierId = item;
+                            int id = selectedPackage.PackageId;
+                            pkgProdsup.PackageId = id;
+                            context.PackagesProductsSuppliers.Add(pkgProdsup);
+                        }
+                        context.SaveChanges();
                     }
                     
-                    context.SaveChanges();
+                    
                     DisplayLVPackages();
                 }
                 catch (DbUpdateException ex)
