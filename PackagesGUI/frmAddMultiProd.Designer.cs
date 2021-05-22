@@ -39,6 +39,7 @@ namespace PackagesGUI
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_ProdUnSelect = new System.Windows.Forms.Button();
+            this.btnClearSelections = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbo_Suppliers
@@ -142,11 +143,22 @@ namespace PackagesGUI
             this.btn_ProdUnSelect.UseVisualStyleBackColor = true;
             this.btn_ProdUnSelect.Click += new System.EventHandler(this.btn_ProdUnSelect_Click);
             // 
+            // btnClearSelections
+            // 
+            this.btnClearSelections.Location = new System.Drawing.Point(602, 331);
+            this.btnClearSelections.Name = "btnClearSelections";
+            this.btnClearSelections.Size = new System.Drawing.Size(76, 49);
+            this.btnClearSelections.TabIndex = 15;
+            this.btnClearSelections.Text = "Clear Selections";
+            this.btnClearSelections.UseVisualStyleBackColor = true;
+            this.btnClearSelections.Click += new System.EventHandler(this.btnClearSelections_Click);
+            // 
             // frmAddMultiProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 561);
+            this.Controls.Add(this.btnClearSelections);
             this.Controls.Add(this.btn_ProdUnSelect);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -179,5 +191,6 @@ namespace PackagesGUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_ProdUnSelect;
+        private System.Windows.Forms.Button btnClearSelections;
     }
 }

@@ -33,16 +33,6 @@ namespace PackagesGUI
             DisplayLVPackages();
         }
 
-        /// <summary>
-        ///  this function manages disabling/enabling modify and delete buttons
-        /// </summary>
-        /// <param name="status">true to enable buttons, false to disable</param>
-        private void ManageControls(bool status)
-        {
-            btnModify.Enabled = status;
-            btnRemove.Enabled = status;
-        }
-
         private void DisplayLVPackages()
         {
             //first clear the list view
@@ -102,10 +92,13 @@ namespace PackagesGUI
             {
                 lvPackages.Items.Add(p.PackageId.ToString());
                 lvPackages.Items[i].SubItems.Add(p.PkgName.ToString());
-                lvPackages.Items[i].SubItems.Add(p.PkgStartDate.ToString());
-                lvPackages.Items[i].SubItems.Add(p.PkgEndDate.ToString());
-                lvPackages.Items[i].SubItems.Add(p.PkgBasePrice.ToString());
-                lvPackages.Items[i].SubItems.Add(p.PkgAgencyCommission.ToString());
+                DateTime start = (DateTime)p.PkgStartDate;
+                lvPackages.Items[i].SubItems.Add(start.ToString("dd/MMM/yyyy"));
+                DateTime end = (DateTime)p.PkgEndDate;
+                lvPackages.Items[i].SubItems.Add(end.ToString("dd/MMM/yyyy"));
+                lvPackages.Items[i].SubItems.Add(p.PkgBasePrice.ToString("c0"));
+                decimal com = (decimal)p.PkgAgencyCommission;
+                lvPackages.Items[i].SubItems.Add(com.ToString("c0"));
 
                 i++;
             }
@@ -135,6 +128,7 @@ namespace PackagesGUI
         //Adding new package
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            HideForm();
             //create second form
             frmAddModifyPackage addModPkg = new frmAddModifyPackage();
 
@@ -152,7 +146,7 @@ namespace PackagesGUI
             if (result == DialogResult.OK)
             {
                 selectedPackage = addModPkg.package;
-                selectedProductsIds = addModPkg.selectedProductsIds;
+                selectedProductsIds = addModPkg.updated_Product_Selections;
                 try
                 {
                     var newPackage = context.Packages.Add(selectedPackage);
@@ -180,36 +174,75 @@ namespace PackagesGUI
                 {
                     HandleGeneralError(ex);
                 }
+                
             }
+            ShowForm();
+            ClearSelection();
 
         }
 
         //Modifying existing product
         private void btnModify_Click(object sender, EventArgs e)
         {
+            HideForm();
             //create second form
-            frmAddModifyPackage secondForm = new frmAddModifyPackage();
-
+            frmAddModifyPackage addModPkg = new frmAddModifyPackage();
             // setting isAdd to false to pass it to the second form
-            secondForm.isAdd = false;
+            addModPkg.isAdd = false;
 
             /*retrieving the selected product
              * selected_package code is retrieved from the lvPackages_ItemSelectionChanged
             event handler*/
-            secondForm.package = context.Packages.Find(selected_packageID);
-
+            addModPkg.package = context.Packages.Find(selected_packageID);
+            addModPkg.Original_Product_selections = ProductsByPackage(selected_packageID);
+            
             //show it modal
-            DialogResult result = secondForm.ShowDialog();//accept returns ok
+            DialogResult result = addModPkg.ShowDialog();//accept returns ok
 
             //if dialogresult is ok, save product, and display items in list view
             if (result == DialogResult.OK)
             {
-                selectedPackage = secondForm.package;
+                selectedPackage = addModPkg.package;
+                var updated = addModPkg.updated_Product_Selections;
+              //  var original = GetProdSuppId_Selections(selected_packageID);
+                if (updated!=null)
+                    selectedProductsIds = updated;
+                //else
+                //    selectedProductsIds = original;
                 try
                 {
+                  
+                    //remove old selections
+                    var pkgProdSuppliers = context.PackagesProductsSuppliers
+                    .Where(p => p.PackageId == selected_packageID);
+                    
+
+                    foreach (var item in pkgProdSuppliers)
+                        context.PackagesProductsSuppliers.Remove(item);
+
+                    context.SaveChanges();
+
+                    //add new selections
+
+                    foreach (var item in selectedProductsIds)
+                    {
+                        //creating the corresponding entry for each selected product
+                        //in the PackagesProductsSuppliers table
+                        PackagesProductsSuppliers pkgProdsup = new PackagesProductsSuppliers();
+                        pkgProdsup.ProductSupplierId = item;
+                        int id = selectedPackage.PackageId;
+                        pkgProdsup.PackageId = id;
+                        context.PackagesProductsSuppliers.Add(pkgProdsup);
+                    }
+
                     context.SaveChanges();
                     DisplayLVPackages();
+
+
                 }
+
+
+
                 catch (DbUpdateException ex)
                 {
                     HandleDataError(ex);
@@ -219,46 +252,38 @@ namespace PackagesGUI
                     HandleGeneralError(ex);
                 }
             }
+            ShowForm();
+            ClearSelection();
             ManageControls(false);
 
         }
 
         private void btnView_Click(object sender, EventArgs e)
         {
+            HideForm();
             //create second form
             frmViewPkg secondForm = new frmViewPkg();
-
 
             /*retrieving the selected product
              * selected_package code is retrieved from the lvPackages_ItemSelectionChanged
             event handler*/
             secondForm.package = context.Packages.Find(selected_packageID);
             //retrieving a list of the ProductSupplierID for the selected package
-            var PkgProdSups = context.PackagesProductsSuppliers.
-                Where(p => p.PackageId == selected_packageID).
-                Select(psID=> psID.ProductSupplierId).ToList();
-            //looping through all ProductSupplierIds to retrieve 
-            // supplier name and product name associated with each product
-            foreach (var pkgProdSupID in PkgProdSups)
-            {
-                var ps = context.ProductsSuppliers
-                    .SingleOrDefault(ps => pkgProdSupID == ps.ProductSupplierId);
-
-                var sup = context.Suppliers.Find(ps.SupplierId);
-                var prod = context.Products.Find(ps.ProductId);
-
-                secondForm.prodlist.Add(sup.SupName + " " + prod.ProdName);
-            }
-
+            secondForm.prodlist = ProductsByPackage(selected_packageID);
 
             this.Visible = false;
             //show it modal
             DialogResult result = secondForm.ShowDialog();//accept returns ok
             this.Visible = true;
 
+            ShowForm();
+            ClearSelection();
             ManageControls(false);
 
         }
+
+        
+
         private void btnRemove_Click(object sender, EventArgs e)
         {
             // retrieving product through user selection from lvProducts_ItemSelectionChange event handler
@@ -275,11 +300,14 @@ namespace PackagesGUI
             {
                 try
                 {
-                    //remove the package 
-                    context.Packages.Remove(selectedPackage);
+                    
                     //remove every PackagesProductSupplier entry associated with the package
                     foreach(var item in pkgProdSuppliers)
                         context.PackagesProductsSuppliers.Remove(item);
+                    context.SaveChanges();
+
+                    //remove the package 
+                    context.Packages.Remove(selectedPackage);
                     context.SaveChanges();
 
                     //display updated listview
@@ -296,6 +324,7 @@ namespace PackagesGUI
             }
 
             ManageControls(false);
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -320,6 +349,57 @@ namespace PackagesGUI
             MessageBox.Show(ex.Message, ex.GetType().ToString());
         }
 
-     
+        private void HideForm()
+        {
+            this.Visible = false;
+        }
+
+        private void ShowForm()
+        {
+            this.Visible = true;
+        }
+
+        /// <summary>
+        ///  this function manages disabling/enabling modify and delete buttons
+        /// </summary>
+        /// <param name="status">true to enable buttons, false to disable</param>
+        private void ManageControls(bool status)
+        {
+            btnModify.Enabled = status;
+            btnRemove.Enabled = status;
+            btnView.Enabled = status;
+        }
+
+        private void ClearSelection()
+        {
+            lvPackages.SelectedItems.Clear();
+        }
+        private List<string> ProductsByPackage(int selected_packageID)
+        {
+            List<string> productsList = new List<string>();
+            List<int> PkgProdSups = GetProdSuppId_Selections(selected_packageID);
+            //looping through all ProductSupplierIds to retrieve 
+            // supplier name and product name associated with each product
+            foreach (var pkgProdSupID in PkgProdSups)
+            {
+                var ps = context.ProductsSuppliers
+                    .SingleOrDefault(ps => pkgProdSupID == ps.ProductSupplierId);
+
+                var sup = context.Suppliers.Find(ps.SupplierId);
+                var prod = context.Products.Find(ps.ProductId);
+
+                productsList.Add(pkgProdSupID + " | " + sup.SupName + " " + prod.ProdName);
+
+            }
+            return productsList;
+
+        }
+
+        private List<int> GetProdSuppId_Selections(int selected_packageID)
+        {
+            return context.PackagesProductsSuppliers.
+                Where(p => p.PackageId == selected_packageID).
+                Select(psID => psID.ProductSupplierId).ToList();
+        }
     }
 }

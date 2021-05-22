@@ -13,7 +13,8 @@ namespace PackagesGUI
     public partial class frmAddModifyPackage : Form
     {
         public Packages package = null;
-        public List<int> selectedProductsIds; //selected package products 
+        public List<int> updated_Product_Selections; //selected package products
+        public List<string> Original_Product_selections = new List<string>();
         public bool isAdd; // to differentiate which operation to be performed
         
         public frmAddModifyPackage()
@@ -30,11 +31,13 @@ namespace PackagesGUI
             if (this.isAdd)//add
             {
                 this.Text = "Add Package";
+                btnAddProducts.Text = "Click to Add Products";
                 lbl_pkgID.Text = "TBD";
             }
             else//modify
             {
-                this.Text = "Modify Package";
+                this.Text = "Update Package";
+                btnAddProducts.Text = "Click to Update Products";
                 lbl_pkgID.Text = package.PackageId.ToString();
 
                 txtPkgName.Text = package.PkgName;
@@ -43,6 +46,9 @@ namespace PackagesGUI
                 rt_PkgDes.Text = package.PkgDesc;
                 txtBasePrice.Text = package.PkgBasePrice.ToString();
                 txtComm.Text = package.PkgAgencyCommission.ToString();
+
+               // prdForm.currentProductSelections = Original_Product_selections;
+                
             }
         }
         //Accepting Adding/Modifying changes
@@ -69,6 +75,7 @@ namespace PackagesGUI
                 
                 //set dialog result to ok
                 this.DialogResult = DialogResult.OK;
+               
             }
 
         }
@@ -96,10 +103,17 @@ namespace PackagesGUI
         {
             //creating the products form
             frmAddMultiProd prdForm = new frmAddMultiProd();
+            if (!isAdd)
+            {
+                //if it is a modify, display original product selections
+                prdForm.currentProductSelections = Original_Product_selections;
+            }
+
+
             this.Visible = false;
             //show it modal
             DialogResult result = prdForm.ShowDialog();//accept returns ok
-            selectedProductsIds = prdForm.prdSupIds;
+            updated_Product_Selections = prdForm.prdSupIds;
             if (result == DialogResult.OK || result == DialogResult.Cancel)
             {
                 this.Visible = true;

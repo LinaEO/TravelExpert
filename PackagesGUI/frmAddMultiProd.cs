@@ -15,9 +15,10 @@ namespace PackagesGUI
         private TravelExpertsContext context = new TravelExpertsContext(); //DB Context object
        // private List<string> selected_sup = new List<string>();//keeps track of selected suppliers
        private List<int> selected_prod = new List<int>(); //keeps track of selected products
-       public List<int> prdSupIds = new List<int>();
        private List<string> suppliers = new List<string>();//saving all suppliers
        private List<string> products = new List<string>(); // saving products for each supplier
+       public List<int> prdSupIds = new List<int>();
+       public List<string> currentProductSelections = new List<string>();
 
         public frmAddMultiProd()
         {
@@ -26,6 +27,26 @@ namespace PackagesGUI
         private void frmAddMultiProd_Load(object sender, EventArgs e)
         {
             LoadSuppliers();
+            if (currentProductSelections.Count > 0)
+            {
+                //load previous product selections
+                foreach (var product in currentProductSelections)
+                {
+                    //loading selections list box with previously selected products
+                    lbo_Selections.Items.Add(product);
+
+                    //updating selected products to save previous selections 
+                    //unless otherwise decided by user
+                    string[] prod_split = product.Split('|');
+                    int id = Convert.ToInt32(prod_split[0].Trim());
+                    selected_prod.Add(id);
+                    this.Text = "Update Products in Package";
+
+                }
+                //update button text to display that this is an update
+                btn_AddProds.Text = "Update Products";
+               
+            }
         }
 
        
@@ -43,13 +64,16 @@ namespace PackagesGUI
                && psID.SupplierId == Convert.ToInt32(sup_details[0])).ProductSupplierId;
 
                 var lbo_item_text = selected_ProdSupID + " | " + sup_details[1] + " " + prod_details[1] ;
-            //    var selection_text_ids = lbo_Suppliers.SelectedItem.ToString() + "|" + item.ToString();
-                   
-                selected_prod.Add(selected_ProdSupID);
-                if(!lbo_Selections.Items.Contains(lbo_item_text))
-                        lbo_Selections.Items.Add(lbo_item_text);
+                //    var selection_text_ids = lbo_Suppliers.SelectedItem.ToString() + "|" + item.ToString();
+
+
+                if (!lbo_Selections.Items.Contains(lbo_item_text))
+                {
+                    lbo_Selections.Items.Add(lbo_item_text);
+                    selected_prod.Add(selected_ProdSupID);
+                }
                 else
-                    MessageBox.Show("Product already added","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Product already added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //clearing selections
             lbo_Suppliers.ClearSelected();
@@ -132,6 +156,11 @@ namespace PackagesGUI
             this.DialogResult = DialogResult.OK;
         }
 
-       
+        private void btnClearSelections_Click(object sender, EventArgs e)
+        {
+            selected_prod.Clear();
+            lbo_Selections.Items.Clear();
+
+        }
     }
 }
