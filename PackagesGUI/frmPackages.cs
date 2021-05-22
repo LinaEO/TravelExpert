@@ -39,7 +39,7 @@ namespace PackagesGUI
             lvPackages.Clear();
 
             //setting width of listview 
-            lvPackages.Width = 800;
+            lvPackages.Width = 1150;
             // Declare and construct the ColumnHeader objects.
             ColumnHeader header1, header2, header3, header4, header5, header6;
             header1 = new ColumnHeader();
@@ -52,27 +52,27 @@ namespace PackagesGUI
             // Set the text, alignment and width for each column header.
             header1.Text = "ID";
             header1.TextAlign = HorizontalAlignment.Left;
-            header1.Width = 50;
+            header1.Width = 70;
 
             header2.Text = "Name";
             header2.TextAlign = HorizontalAlignment.Left;
-            header2.Width = 150;
+            header2.Width = 300;
 
             header3.Text = "Starts";
             header3.TextAlign = HorizontalAlignment.Left;
-            header3.Width = 150;
+            header3.Width = 200;
 
             header4.Text = "Ends";
             header4.TextAlign = HorizontalAlignment.Left;
-            header4.Width = 250;
+            header4.Width = 200;
 
             header5.Text = "Base Price";
             header5.TextAlign = HorizontalAlignment.Left;
-            header5.Width = 100;
+            header5.Width = 180;
 
             header6.Text = "Commission";
             header6.TextAlign = HorizontalAlignment.Left;
-            header6.Width = 100;
+            header6.Width = 180;
 
             // Add the headers to the ListView control.
             lvPackages.Columns.Add(header1);
@@ -204,11 +204,11 @@ namespace PackagesGUI
             {
                 selectedPackage = addModPkg.package;
                 var updated = addModPkg.updated_Product_Selections;
-              //  var original = GetProdSuppId_Selections(selected_packageID);
+                var original = GetProdSuppId_Selections(selected_packageID);
                 if (updated!=null)
                     selectedProductsIds = updated;
-                //else
-                //    selectedProductsIds = original;
+                else
+                    selectedProductsIds = original;
                 try
                 {
                   

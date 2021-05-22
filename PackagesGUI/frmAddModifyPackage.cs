@@ -44,8 +44,9 @@ namespace PackagesGUI
                 dtp_pkgStartDate.Value = (DateTime)package.PkgStartDate;
                 dtp_pkgEndDate.Value = (DateTime)package.PkgEndDate;
                 rt_PkgDes.Text = package.PkgDesc;
-                txtBasePrice.Text = package.PkgBasePrice.ToString();
-                txtComm.Text = package.PkgAgencyCommission.ToString();
+                txtBasePrice.Text = package.PkgBasePrice.ToString("f0");
+                var comm = (decimal)package.PkgAgencyCommission;
+                txtComm.Text = comm.ToString("f0");
 
                // prdForm.currentProductSelections = Original_Product_selections;
                 

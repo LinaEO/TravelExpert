@@ -23,8 +23,9 @@ namespace PackagesGUI
             //loading package data
             lbl_pkgID.Text = package.PackageId.ToString();
             txtPkgName.Text = package.PkgName;
-            txtBasePrice.Text = package.PkgBasePrice.ToString();
-            txtComm.Text = package.PkgAgencyCommission.ToString();
+            txtBasePrice.Text = package.PkgBasePrice.ToString("c0");
+            var comm = (decimal)package.PkgAgencyCommission;
+            txtComm.Text = comm.ToString("c0");
             dtp_pkgStartDate.Value = (DateTime)package.PkgStartDate;
             dtp_pkgEndDate.Value = (DateTime)package.PkgEndDate;
             rt_PkgDes.Text = package.PkgDesc;
