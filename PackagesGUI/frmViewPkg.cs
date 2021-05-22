@@ -26,8 +26,10 @@ namespace PackagesGUI
             txtBasePrice.Text = package.PkgBasePrice.ToString("c0");
             var comm = (decimal)package.PkgAgencyCommission;
             txtComm.Text = comm.ToString("c0");
-            dtp_pkgStartDate.Value = (DateTime)package.PkgStartDate;
-            dtp_pkgEndDate.Value = (DateTime)package.PkgEndDate;
+            var start = (DateTime)package.PkgStartDate;
+            txtStarts.Text = start.ToString("dd-MMM-yyyy");
+            var end = (DateTime)package.PkgEndDate;
+            txtEnds.Text = end.ToString("dd-MMM-yyyy");
             rt_PkgDes.Text = package.PkgDesc;
             foreach (var prod in prodlist)
                 lbo_prods.Items.Add(prod);

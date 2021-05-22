@@ -31,9 +31,7 @@ namespace PackagesGUI
         {
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_pkgID = new System.Windows.Forms.Label();
-            this.dtp_pkgEndDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtp_pkgStartDate = new System.Windows.Forms.DateTimePicker();
             this.txtComm = new System.Windows.Forms.TextBox();
             this.txtBasePrice = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,6 +47,8 @@ namespace PackagesGUI
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtStarts = new System.Windows.Forms.TextBox();
+            this.txtEnds = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label7
@@ -64,37 +64,23 @@ namespace PackagesGUI
             // 
             this.lbl_pkgID.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_pkgID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_pkgID.Location = new System.Drawing.Point(128, 47);
+            this.lbl_pkgID.Location = new System.Drawing.Point(116, 47);
             this.lbl_pkgID.Name = "lbl_pkgID";
             this.lbl_pkgID.Size = new System.Drawing.Size(105, 30);
             this.lbl_pkgID.TabIndex = 47;
             // 
-            // dtp_pkgEndDate
-            // 
-            this.dtp_pkgEndDate.Location = new System.Drawing.Point(127, 315);
-            this.dtp_pkgEndDate.Name = "dtp_pkgEndDate";
-            this.dtp_pkgEndDate.Size = new System.Drawing.Size(209, 23);
-            this.dtp_pkgEndDate.TabIndex = 46;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 321);
+            this.label1.Location = new System.Drawing.Point(27, 324);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 15);
             this.label1.TabIndex = 45;
             this.label1.Text = "Ends";
             // 
-            // dtp_pkgStartDate
-            // 
-            this.dtp_pkgStartDate.Location = new System.Drawing.Point(127, 275);
-            this.dtp_pkgStartDate.Name = "dtp_pkgStartDate";
-            this.dtp_pkgStartDate.Size = new System.Drawing.Size(209, 23);
-            this.dtp_pkgStartDate.TabIndex = 44;
-            // 
             // txtComm
             // 
-            this.txtComm.Location = new System.Drawing.Point(125, 208);
+            this.txtComm.Location = new System.Drawing.Point(113, 208);
             this.txtComm.Name = "txtComm";
             this.txtComm.ReadOnly = true;
             this.txtComm.Size = new System.Drawing.Size(147, 23);
@@ -102,7 +88,7 @@ namespace PackagesGUI
             // 
             // txtBasePrice
             // 
-            this.txtBasePrice.Location = new System.Drawing.Point(125, 171);
+            this.txtBasePrice.Location = new System.Drawing.Point(113, 171);
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.ReadOnly = true;
             this.txtBasePrice.Size = new System.Drawing.Size(147, 23);
@@ -178,7 +164,7 @@ namespace PackagesGUI
             // 
             // txtPkgName
             // 
-            this.txtPkgName.Location = new System.Drawing.Point(125, 90);
+            this.txtPkgName.Location = new System.Drawing.Point(113, 90);
             this.txtPkgName.MaxLength = 50;
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.ReadOnly = true;
@@ -236,11 +222,29 @@ namespace PackagesGUI
             this.label10.TabIndex = 53;
             this.label10.Text = "Details";
             // 
+            // txtStarts
+            // 
+            this.txtStarts.Location = new System.Drawing.Point(113, 281);
+            this.txtStarts.Name = "txtStarts";
+            this.txtStarts.ReadOnly = true;
+            this.txtStarts.Size = new System.Drawing.Size(147, 23);
+            this.txtStarts.TabIndex = 54;
+            // 
+            // txtEnds
+            // 
+            this.txtEnds.Location = new System.Drawing.Point(113, 321);
+            this.txtEnds.Name = "txtEnds";
+            this.txtEnds.ReadOnly = true;
+            this.txtEnds.Size = new System.Drawing.Size(147, 23);
+            this.txtEnds.TabIndex = 55;
+            // 
             // frmViewPkg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 431);
+            this.Controls.Add(this.txtEnds);
+            this.Controls.Add(this.txtStarts);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -248,9 +252,7 @@ namespace PackagesGUI
             this.Controls.Add(this.lbo_prods);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbl_pkgID);
-            this.Controls.Add(this.dtp_pkgEndDate);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtp_pkgStartDate);
             this.Controls.Add(this.txtComm);
             this.Controls.Add(this.txtBasePrice);
             this.Controls.Add(this.label6);
@@ -274,9 +276,7 @@ namespace PackagesGUI
 
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbl_pkgID;
-        private System.Windows.Forms.DateTimePicker dtp_pkgEndDate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtp_pkgStartDate;
         private System.Windows.Forms.TextBox txtComm;
         private System.Windows.Forms.TextBox txtBasePrice;
         private System.Windows.Forms.Label label6;
@@ -292,5 +292,7 @@ namespace PackagesGUI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtStarts;
+        private System.Windows.Forms.TextBox txtEnds;
     }
 }
