@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using PackagesGUI;
 
 namespace TravelExperts
 {
@@ -59,15 +60,7 @@ namespace TravelExperts
             btnSupplier.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        private void btnAdmin_Leave(object sender, EventArgs e)
-        {
-            btnAdmin.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnSettings_Leave(object sender, EventArgs e)
-        {
-            btnSettings.BackColor = Color.FromArgb(24, 30, 54);
-        }
+        
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
@@ -129,54 +122,13 @@ namespace TravelExperts
             FrmSuppliers_Vrb.Show();
         }
 
-        private void btnAdmin_Click(object sender, EventArgs e)
-        {
-            panel3.Height = btnAdmin.Height;
-            panel3.Top = btnAdmin.Top;
-            panel3.Left = btnAdmin.Left;
-            btnAdmin.BackColor = Color.FromArgb(46, 51, 73);
-
-            lblTitle.Text = "Admin";
-            this.PnlFormLoader.Controls.Clear();
-            frmAdmin FrmAdmin_Vrb = new frmAdmin() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            FrmAdmin_Vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(FrmAdmin_Vrb);
-            FrmAdmin_Vrb.Show();
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void PnlFormLoader_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            panel3.Height = btnSettings.Height;
-            panel3.Top = btnSettings.Top;
-            panel3.Left = btnSettings.Left;
-            btnSettings.BackColor = Color.FromArgb(46, 51, 73);
-
-            lblTitle.Text = "Settings";
-            this.PnlFormLoader.Controls.Clear();
-            frmSettings FrmSettings_Vrb = new frmSettings() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            FrmSettings_Vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(FrmSettings_Vrb);
-            FrmSettings_Vrb.Show();
-        }
-
-        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void txtSearchBar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace TravelExperts
+namespace PackagesGUI
 {
     partial class frmAddModifyPackage
     {
@@ -45,46 +45,45 @@ namespace TravelExperts
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_pkgID = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.btnAddProducts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 170);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(12, 83);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 37);
+            this.label4.Size = new System.Drawing.Size(221, 41);
             this.label4.TabIndex = 19;
             this.label4.Text = "Package Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 264);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(12, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 37);
+            this.label3.Size = new System.Drawing.Size(175, 41);
             this.label3.TabIndex = 18;
             this.label3.Text = "Description";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 545);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(12, 317);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 37);
+            this.label2.Size = new System.Drawing.Size(140, 41);
             this.label2.TabIndex = 17;
             this.label2.Text = "Starts on";
             // 
             // btnCancel
             // 
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnCancel.Location = new System.Drawing.Point(476, 964);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancel.Location = new System.Drawing.Point(555, 873);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(172, 57);
+            this.btnCancel.Size = new System.Drawing.Size(198, 92);
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -92,94 +91,93 @@ namespace TravelExperts
             // 
             // btnOk
             // 
-            this.btnOk.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnOk.Location = new System.Drawing.Point(250, 964);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.btnOk.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnOk.Location = new System.Drawing.Point(166, 873);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(172, 57);
+            this.btnOk.Size = new System.Drawing.Size(182, 92);
             this.btnOk.TabIndex = 14;
-            this.btnOk.Text = "Ok";
+            this.btnOk.Text = "Save";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // txtPkgName
             // 
-            this.txtPkgName.Location = new System.Drawing.Point(272, 163);
-            this.txtPkgName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtPkgName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtPkgName.Location = new System.Drawing.Point(290, 83);
             this.txtPkgName.MaxLength = 50;
             this.txtPkgName.Name = "txtPkgName";
-            this.txtPkgName.Size = new System.Drawing.Size(514, 43);
+            this.txtPkgName.Size = new System.Drawing.Size(484, 47);
             this.txtPkgName.TabIndex = 13;
             // 
             // rt_PkgDes
             // 
-            this.rt_PkgDes.Location = new System.Drawing.Point(272, 257);
-            this.rt_PkgDes.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.rt_PkgDes.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rt_PkgDes.Location = new System.Drawing.Point(288, 152);
             this.rt_PkgDes.MaxLength = 50;
             this.rt_PkgDes.Name = "rt_PkgDes";
-            this.rt_PkgDes.Size = new System.Drawing.Size(514, 231);
+            this.rt_PkgDes.Size = new System.Drawing.Size(485, 103);
             this.rt_PkgDes.TabIndex = 21;
             this.rt_PkgDes.Text = "";
             // 
             // Base
             // 
             this.Base.AutoSize = true;
-            this.Base.Location = new System.Drawing.Point(38, 760);
-            this.Base.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.Base.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Base.Location = new System.Drawing.Point(12, 493);
             this.Base.Name = "Base";
-            this.Base.Size = new System.Drawing.Size(147, 37);
+            this.Base.Size = new System.Drawing.Size(156, 41);
             this.Base.TabIndex = 22;
             this.Base.Text = "Base Price";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(38, 844);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(12, 593);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(174, 37);
+            this.label6.Size = new System.Drawing.Size(187, 41);
             this.label6.TabIndex = 23;
             this.label6.Text = "Commission";
             // 
             // txtBasePrice
             // 
-            this.txtBasePrice.Location = new System.Drawing.Point(272, 752);
-            this.txtBasePrice.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtBasePrice.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtBasePrice.Location = new System.Drawing.Point(288, 490);
             this.txtBasePrice.Name = "txtBasePrice";
-            this.txtBasePrice.Size = new System.Drawing.Size(330, 43);
+            this.txtBasePrice.Size = new System.Drawing.Size(382, 47);
             this.txtBasePrice.TabIndex = 24;
             // 
             // txtComm
             // 
-            this.txtComm.Location = new System.Drawing.Point(272, 844);
-            this.txtComm.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtComm.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtComm.Location = new System.Drawing.Point(289, 593);
             this.txtComm.Name = "txtComm";
-            this.txtComm.Size = new System.Drawing.Size(330, 43);
+            this.txtComm.Size = new System.Drawing.Size(381, 47);
             this.txtComm.TabIndex = 25;
             // 
             // dtp_pkgStartDate
             // 
-            this.dtp_pkgStartDate.Location = new System.Drawing.Point(272, 530);
-            this.dtp_pkgStartDate.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.dtp_pkgStartDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtp_pkgStartDate.Location = new System.Drawing.Point(289, 312);
             this.dtp_pkgStartDate.Name = "dtp_pkgStartDate";
-            this.dtp_pkgStartDate.Size = new System.Drawing.Size(472, 43);
+            this.dtp_pkgStartDate.Size = new System.Drawing.Size(485, 46);
             this.dtp_pkgStartDate.TabIndex = 27;
             // 
             // dtp_pkgEndDate
             // 
-            this.dtp_pkgEndDate.Location = new System.Drawing.Point(272, 629);
-            this.dtp_pkgEndDate.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.dtp_pkgEndDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtp_pkgEndDate.Location = new System.Drawing.Point(289, 397);
             this.dtp_pkgEndDate.Name = "dtp_pkgEndDate";
-            this.dtp_pkgEndDate.Size = new System.Drawing.Size(472, 43);
+            this.dtp_pkgEndDate.Size = new System.Drawing.Size(485, 46);
             this.dtp_pkgEndDate.TabIndex = 29;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 644);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(12, 397);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 37);
+            this.label1.Size = new System.Drawing.Size(83, 41);
             this.label1.TabIndex = 28;
             this.label1.Text = "Ends";
             // 
@@ -187,43 +185,39 @@ namespace TravelExperts
             // 
             this.lbl_pkgID.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_pkgID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_pkgID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_pkgID.Location = new System.Drawing.Point(278, 57);
-            this.lbl_pkgID.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lbl_pkgID.Location = new System.Drawing.Point(290, 17);
             this.lbl_pkgID.Name = "lbl_pkgID";
-            this.lbl_pkgID.Size = new System.Drawing.Size(240, 74);
+            this.lbl_pkgID.Size = new System.Drawing.Size(233, 55);
             this.lbl_pkgID.TabIndex = 30;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 59);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(12, 25);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 37);
+            this.label7.Size = new System.Drawing.Size(170, 41);
             this.label7.TabIndex = 31;
             this.label7.Text = "Package ID";
             // 
-            // btnExit
+            // btnAddProducts
             // 
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(754, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(44, 55);
-            this.btnExit.TabIndex = 32;
-            this.btnExit.Text = "X";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnAddProducts.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddProducts.Location = new System.Drawing.Point(166, 716);
+            this.btnAddProducts.Name = "btnAddProducts";
+            this.btnAddProducts.Size = new System.Drawing.Size(587, 97);
+            this.btnAddProducts.TabIndex = 32;
+            this.btnAddProducts.Text = "Click to Add Products";
+            this.btnAddProducts.UseVisualStyleBackColor = true;
+            this.btnAddProducts.Click += new System.EventHandler(this.btnAddProducts_Click);
             // 
             // frmAddModifyPackage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 40F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(827, 1078);
-            this.Controls.Add(this.btnExit);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ClientSize = new System.Drawing.Size(887, 1010);
+            this.Controls.Add(this.btnAddProducts);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbl_pkgID);
             this.Controls.Add(this.dtp_pkgEndDate);
@@ -240,11 +234,9 @@ namespace TravelExperts
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txtPkgName);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Name = "frmAddModifyPackage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddModifyPackage";
             this.Load += new System.EventHandler(this.frmAddModifyPackage_Load);
             this.ResumeLayout(false);
@@ -269,6 +261,6 @@ namespace TravelExperts
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_pkgID;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnAddProducts;
     }
 }

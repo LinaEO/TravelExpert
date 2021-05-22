@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dongd\\Desktop\\TravelExperts\\PackagesData\\PackagesData.csproj": {}
+    "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\PackagesData\\PackagesData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dongd\\Desktop\\TravelExperts\\PackagesData\\PackagesData.csproj": {
+    "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\PackagesData\\PackagesData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dongd\\Desktop\\TravelExperts\\PackagesData\\PackagesData.csproj",
+        "projectUniqueName": "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\PackagesData\\PackagesData.csproj",
         "projectName": "PackagesData",
-        "projectPath": "C:\\Users\\dongd\\Desktop\\TravelExperts\\PackagesData\\PackagesData.csproj",
+        "projectPath": "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\PackagesData\\PackagesData.csproj",
         "packagesPath": "C:\\Users\\dongd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dongd\\Desktop\\TravelExperts\\PackagesData\\obj\\",
+        "outputPath": "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\PackagesData\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dongd\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\dongd\\Desktop\\TravelExperts\\TravelExperts\\TravelExperts.csproj": {
-                "projectPath": "C:\\Users\\dongd\\Desktop\\TravelExperts\\TravelExperts\\TravelExperts.csproj"
+              "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\TravelExperts\\TravelExperts.csproj": {
+                "projectPath": "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\TravelExperts\\TravelExperts.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\dongd\\Desktop\\TravelExperts\\TravelExperts\\TravelExperts.csproj": {
+    "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\TravelExperts\\TravelExperts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dongd\\Desktop\\TravelExperts\\TravelExperts\\TravelExperts.csproj",
+        "projectUniqueName": "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\TravelExperts\\TravelExperts.csproj",
         "projectName": "TravelExperts",
-        "projectPath": "C:\\Users\\dongd\\Desktop\\TravelExperts\\TravelExperts\\TravelExperts.csproj",
+        "projectPath": "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\TravelExperts\\TravelExperts.csproj",
         "packagesPath": "C:\\Users\\dongd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dongd\\Desktop\\TravelExperts\\TravelExperts\\obj\\",
+        "outputPath": "C:\\Users\\dongd\\Desktop\\Git Local\\TravelExpert\\TravelExperts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dongd\\AppData\\Roaming\\NuGet\\NuGet.Config",

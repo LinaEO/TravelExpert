@@ -34,27 +34,33 @@ namespace TravelExperts
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvPackages
             // 
+            this.lvPackages.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
             this.lvPackages.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lvPackages.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lvPackages.FullRowSelect = true;
             this.lvPackages.HideSelection = false;
-            this.lvPackages.Location = new System.Drawing.Point(138, 85);
+            this.lvPackages.LabelWrap = false;
+            this.lvPackages.Location = new System.Drawing.Point(27, 29);
             this.lvPackages.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.lvPackages.Name = "lvPackages";
-            this.lvPackages.Size = new System.Drawing.Size(977, 661);
+            this.lvPackages.Size = new System.Drawing.Size(1186, 704);
             this.lvPackages.TabIndex = 0;
             this.lvPackages.UseCompatibleStateImageBehavior = false;
+            this.lvPackages.View = System.Windows.Forms.View.Details;
             this.lvPackages.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvPackages_ItemSelectionChanged);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(60, 803);
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(27, 782);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(161, 57);
+            this.btnAdd.Size = new System.Drawing.Size(159, 96);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -62,10 +68,11 @@ namespace TravelExperts
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(540, 803);
+            this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemove.Location = new System.Drawing.Point(620, 782);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(161, 57);
+            this.btnRemove.Size = new System.Drawing.Size(169, 96);
             this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -73,32 +80,46 @@ namespace TravelExperts
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(290, 803);
+            this.btnModify.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnModify.Location = new System.Drawing.Point(215, 782);
             this.btnModify.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(161, 57);
+            this.btnModify.Size = new System.Drawing.Size(172, 96);
             this.btnModify.TabIndex = 3;
-            this.btnModify.Text = "Modify";
+            this.btnModify.Text = "Update";
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(954, 803);
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExit.Location = new System.Drawing.Point(1036, 782);
             this.btnExit.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(161, 57);
+            this.btnExit.Size = new System.Drawing.Size(114, 96);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnView
+            // 
+            this.btnView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnView.Location = new System.Drawing.Point(415, 782);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(169, 96);
+            this.btnView.TabIndex = 5;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click_1);
             // 
             // frmPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1182, 929);
+            this.ClientSize = new System.Drawing.Size(1228, 905);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnRemove);
@@ -120,6 +141,7 @@ namespace TravelExperts
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnView;
     }
 }
 

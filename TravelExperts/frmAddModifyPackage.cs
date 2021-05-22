@@ -1,16 +1,21 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TravelExperts;
 
-namespace TravelExperts
+namespace PackagesGUI
 {
     public partial class frmAddModifyPackage : Form
     {
         public Packages package = null;
+        public List<int> updated_Product_Selections; //selected package products
+        public List<string> Original_Product_selections = new List<string>();
         public bool isAdd; // to differentiate which operation to be performed
         public frmAddModifyPackage()
         {
@@ -21,23 +26,31 @@ namespace TravelExperts
         //Form load event hander, depending on the value of isAdd, loads add or modify form
         private void frmAddModifyPackage_Load(object sender, EventArgs e)
         {
+
+
             //distinguish add or modify
             if (this.isAdd)//add
             {
                 this.Text = "Add Package";
+                btnAddProducts.Text = "Click to Add Products";
                 lbl_pkgID.Text = "TBD";
             }
             else//modify
             {
-                this.Text = "Modify Package";
+                this.Text = "Update Package";
+                btnAddProducts.Text = "Click to Update Products";
                 lbl_pkgID.Text = package.PackageId.ToString();
 
                 txtPkgName.Text = package.PkgName;
                 dtp_pkgStartDate.Value = (DateTime)package.PkgStartDate;
                 dtp_pkgEndDate.Value = (DateTime)package.PkgEndDate;
                 rt_PkgDes.Text = package.PkgDesc;
-                txtBasePrice.Text = package.PkgBasePrice.ToString();
-                txtComm.Text = package.PkgAgencyCommission.ToString();
+                txtBasePrice.Text = package.PkgBasePrice.ToString("f0");
+                var comm = (decimal)package.PkgAgencyCommission;
+                txtComm.Text = comm.ToString("f0");
+
+                // prdForm.currentProductSelections = Original_Product_selections;
+
             }
         }
         //Accepting Adding/Modifying changes
@@ -61,7 +74,7 @@ namespace TravelExperts
                 package.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
                 package.PkgAgencyCommission = Convert.ToDecimal(txtComm.Text);
 
-
+                
                 //set dialog result to ok
                 this.DialogResult = DialogResult.OK;
             }
@@ -87,9 +100,27 @@ namespace TravelExperts
             this.Close();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnAddProducts_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // creating the products form
+             frmAddMultiProd prdForm = new frmAddMultiProd();
+            if (!isAdd)
+            {
+                //if it is a modify, display original product selections
+                prdForm.currentProductSelections = Original_Product_selections;
+            }
+
+
+            this.Visible = false;
+            //show it modal
+            DialogResult result = prdForm.ShowDialog();//accept returns ok
+            updated_Product_Selections = prdForm.prdSupIds;
+            if (result == DialogResult.OK || result == DialogResult.Cancel)
+            {
+                this.Visible = true;
+            }
+
+
         }
     }
 }

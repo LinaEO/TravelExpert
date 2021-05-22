@@ -1,278 +1,247 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using TravelExperts;
 
-
-namespace TravelExperts
+namespace PackagesGUI
 {
     public partial class frmProducts : Form
     {
-        private TravelExpertsContext context = new TravelExpertsContext();
+        private TravelExpertsContext context = new TravelExpertsContext(); //DB Context object
+        private Products selectedProduct;//the current package
+        private List<int> selectedProductsIds; //selected package products
+        private int selected_productID; // keeps track of selected product for modifying/deleting
 
-        private Products selectedProduct;
-        private Products searchedProduct;
         public frmProducts()
         {
             InitializeComponent();
         }
-
-        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        //LOAD EVENTS ----------------------------------------
-
+        
         private void frmProducts_Load(object sender, EventArgs e)
         {
-            DisplayProducts();
+            //disabling modify and remove
+            ManageControls(false);
+            //displaying products
+            DisplayLVProducts();
         }
-        //   CREATE UPDATE READ DELETE PRODUCT------------------------------------------
-
-        private void DeleteProduct()
+/// <summary>
+        ///  this function manages disabling/enabling modify and delete buttons
+        /// </summary>
+        /// <param name="status">true to enable buttons, false to disable</param>
+        private void ManageControls(bool status)
         {
-            DialogResult result =
-              MessageBox.Show($"Delete {selectedProduct.ProductId}?",
-              "Confirm Delete", MessageBoxButtons.YesNo,
-              MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)// user confirmed
+            btnModify.Enabled = status;
+            btnRemove.Enabled = status;
+        }
+        
+        private void DisplayLVProducts()
+        {
+            //first clear the list view
+            listViewProducts.Clear();
+
+            //setting width of listview
+            listViewProducts.Width = 1000;
+            // Declare and construct the ColumnHeader objects.
+            ColumnHeader header1, header2;
+            header1 = new ColumnHeader();
+            header2 = new ColumnHeader();
+
+            // Set the text, alignment and width for each column header.
+            header1.Text = "ID";
+            header1.TextAlign = HorizontalAlignment.Left;
+            header1.Width = 250;
+
+            header2.Text = "Name";
+            header2.TextAlign = HorizontalAlignment.Left;
+            header2.Width = 550;
+
+            // Add the headers to the ListView control.
+            listViewProducts.Columns.Add(header1);
+            listViewProducts.Columns.Add(header2);
+
+            // Specify that each item appears on a separate line.
+            listViewProducts.View = View.Details;
+
+            //create a list of products to save retrieved products from data base
+            var productList = context.Products.ToList();
+            int i = 0;
+            foreach (var p in productList)
             {
-                try
-                {
-                    context.Products.Remove(selectedProduct);
-                    context.SaveChanges(true);
-                    DisplayProducts();
-                }
-                catch (DbUpdateConcurrencyException ex)
-                {
-                    HandleConcurrencyError(ex);
-                }
-                catch (DbUpdateException ex)
-                {
-                    HandleDatabaseError(ex);
-                }
-                catch (Exception ex)
-                {
-                    HandleGeneralError(ex);
-                }
+                listViewProducts.Items.Add(p.ProductId.ToString());
+                listViewProducts.Items[i].SubItems.Add(p.ProdName.ToString());
+
+                i++;
             }
         }
 
-        private void DisplayProducts()
+        /// <summary>
+        /// This function keeps track of the change in list view item selection changes, and saves
+        /// it to be used in modify and delete functions
+        /// when selection changes, modify and remove button's are enabled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"> retrieving the selected item from the e argument</param>
+        private void listViewProducts_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            dgvProducts.Columns.Clear();
-            var products = context.Products // retrieve products data
-                .OrderBy(p => p.ProdName) // ordered alpabetically by name
-                .Select(p => new { p.ProductId, p.ProdName }) // only two columns
-                .ToList();
-
-            dgvProducts.DataSource = products;
-
-            // add column for modify button
-            var modifyColumn = new DataGridViewButtonColumn()
-            { // object initializer
-                UseColumnTextForButtonValue = true,
-                HeaderText = "", // header on the top
-                Text = "Modify"
-            };
-
-            dgvProducts.Columns.Add(modifyColumn);// add new column to the grid view
-
-            // add column for delete button
-            var deleteColumn = new DataGridViewButtonColumn()
+            //enabling modify and delete buttons only if a row is selected
+            if (e.IsSelected)
             {
-                UseColumnTextForButtonValue = true,
-                HeaderText = "",
-                Text = "Delete"
-            };
-
-            dgvProducts.Columns.Add(deleteColumn);
-
-            // format the column header
-            dgvProducts.EnableHeadersVisualStyles = false;
-            dgvProducts.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
-            dgvProducts.ColumnHeadersDefaultCellStyle.BackColor = Color.Black; // black background on headers
-            dgvProducts.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // white text on headers
-
-            // format the odd numbered rows
-            dgvProducts.AlternatingRowsDefaultCellStyle.BackColor = Color.LightBlue; //light green alternate rows
-
-            // format the first column
-            dgvProducts.Columns[0].HeaderText = "Product Id";
-            dgvProducts.Columns[0].Width = 80;
-
-            // format the second column
-            dgvProducts.Columns[1].HeaderText = "Product Name";
-            dgvProducts.Columns[1].Width = 330;
-
-            // format the third and fourth column
-            dgvProducts.Columns[2].Width = 150;
-            dgvProducts.Columns[3].Width = 150;
-        }
-
-        private void ModifyProduct()
-        {
-            var addModifyProductForm = new frmAddModifyProduct()
-            { // object initializer
-                AddProduct = false,
-                Product = selectedProduct
-            };
-            DialogResult result = addModifyProductForm.ShowDialog();// display modal
-            if (result == DialogResult.OK)// user clicked Accept on the second form
+                ManageControls(true);//if a product is selected, enable modify/remove buttons
+                selected_productID = Convert.ToInt32(e.Item.Text);
+            }
+            else
             {
-                try
-                {
-                    selectedProduct = addModifyProductForm.Product; // new data
-                    context.SaveChanges();
-                    DisplayProducts();
-                }
-                catch (DbUpdateConcurrencyException ex)
-                {
-                    HandleConcurrencyError(ex);
-                }
-                catch (DbUpdateException ex)
-                {
-                    HandleDatabaseError(ex);
-                }
-                catch (Exception ex)
-                {
-                    HandleGeneralError(ex);
-                }
+                ManageControls(false);//disable modify/remove buttons otherwise
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var addModifyProductForm = new frmAddModifyProduct()
-            {
-                AddProduct = true
-            };
+            //create second form
+            frmAddModifyProduct addModifyProduct = new frmAddModifyProduct();
 
-            DialogResult result = addModifyProductForm.ShowDialog();
+            
 
-            if (result == DialogResult.OK)// user clicked on Accept on the second form
+            // setting isAdd to true to pass it to the second form
+            addModifyProduct.isAdd = true;
+            addModifyProduct.product = null; //no package
+
+            //show it modal
+            DialogResult result = addModifyProduct.ShowDialog();//accept returns ok
+
+            //if dialogresult is ok, save package, and display items in list view
+            if (result == DialogResult.OK)
             {
+                selectedProduct = addModifyProduct.product;
+                selectedProductsIds = addModifyProduct.selectedProductsIds;
                 try
                 {
-                    selectedProduct = addModifyProductForm.Product;// record product from the second form as the current product
-                    context.Products.Add(selectedProduct);
+                    var newProduct = context.Products.Add(selectedProduct);
                     context.SaveChanges();
-                    DisplayProducts();
+                    //adding associated products
+                
+                    DisplayLVProducts();
                 }
                 catch (DbUpdateException ex)
                 {
-                    HandleDatabaseError(ex);
+                    HandleDataError(ex);
                 }
                 catch (Exception ex)
                 {
                     HandleGeneralError(ex);
                 }
             }
-            //   CLICK EVENTS-----------------------------
         }
-            private void btnExit_Click(object sender, EventArgs e)
-            {
-                this.Close();
-            }
 
-            private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+      
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            // retrieving product through user selection from lvProducts_ItemSelectionChange event handler
+            //int ID = Convert.ToInt32(selected_packageID);
+
+            selectedProduct = context.Products.Find(selected_productID);
+            var products = context.ProductsSuppliers
+                .Where(p => p.ProductId == selected_productID);
+            //get confirmation from the user
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete {selectedProduct.ProdName}?",
+                "Confirm Delete", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                // e object carries information about the click
-                // like e.ColumnIndex and e.RowIndex
+                try
                 {
-                    // store index values for Modify and Delete button columns
-                    const int ModifyIndex = 2; // Modify buttins are column 2
-                    const int DeleteIndex = 3; // Delete buttons are column 3
+                    //remove the package
+                    context.Products.Remove(selectedProduct);
+                    //remove every PackagesProductSupplier entry associated with the package
+                    foreach (var item in products)
+                        context.ProductsSuppliers.Remove(item);
+                    context.SaveChanges();
 
-                    if (e.ColumnIndex == ModifyIndex || e.ColumnIndex == DeleteIndex) // is it a button?
-                    {
-                        // get the product code:
-                        // grid view has properties (collection) Rows and Columns
-                        // product code is cell number 0 in the current row
-                        // need to trim white spaces from char(10) column
-                        int productId = (int)dgvProducts.Rows[e.RowIndex].Cells[0].Value;
-
-                        selectedProduct = context.Products.Find(productId);// find by PK value
-                    }
-
-                    if (e.ColumnIndex == ModifyIndex) // user clicked on Modify
-                    {
-                        ModifyProduct();
-                    }
-                    else if (e.ColumnIndex == DeleteIndex) // user clicked on Delete
-                    {
-                        DeleteProduct();
-                    }
+                    //display updated listview
+                    DisplayLVProducts();
+                }
+                catch (DbUpdateException ex)
+                {
+                    HandleDataError(ex);
+                }
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
                 }
             }
-            // ERRORS-----------------------------------------------------
-            private void HandleConcurrencyError(DbUpdateConcurrencyException ex)
+
+            ManageControls(false);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            //create second form
+            frmAddModifyProduct secondForm = new frmAddModifyProduct();
+
+            // setting isAdd to false to pass it to the second form
+            secondForm.isAdd = false;
+
+            /*retrieving the selected product
+             * selected_package code is retrieved from the lvPackages_ItemSelectionChanged
+            event handler*/
+            secondForm.product = context.Products.Find(selected_productID);
+
+            //show it modal
+            DialogResult result = secondForm.ShowDialog();//accept returns ok
+
+            //if dialogresult is ok, save product, and display items in list view
+            if (result == DialogResult.OK)
             {
-                ex.Entries.Single().Reload();
-
-                var state = context.Entry(selectedProduct).State;
-                if (state == EntityState.Detached)
+                selectedProduct = secondForm.product;
+                try
                 {
-                    MessageBox.Show("Another user has deleted that product.",
-                        "Concurrency Error");
+                    context.SaveChanges();
+                    DisplayLVProducts();
                 }
-                else
+                catch (DbUpdateException ex)
                 {
-                    string message = "Another user has updated that product.\n" +
-                        "The current database values will be displayed.";
-                    MessageBox.Show(message, "Concurrency Error");
+                    HandleDataError(ex);
                 }
-                this.DisplayProducts();
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
+                }
             }
+            ManageControls(false);
+        }
 
-            private void HandleDatabaseError(DbUpdateException ex)
+        
+
+
+        
+        //displays error message of unknown (any)error
+
+        private void HandleGeneralError(Exception ex)
+        {
+            MessageBox.Show(ex.Message, ex.GetType().ToString());
+        }
+
+        //displays error message of Database update error
+        private void HandleDataError(DbUpdateException ex)
+        {
+            var sqlException = (SqlException)ex.InnerException;
+            string message = "";
+            foreach (SqlError error in sqlException.Errors)
             {
-                string errorMessage = "";
-                var sqlException = (SqlException)ex.InnerException;
-                foreach (SqlError error in sqlException.Errors)
-                {
-                    errorMessage += "ERROR CODE:  " + error.Number + " " +
-                                    error.Message + "\n";
-                }
-                MessageBox.Show(errorMessage);
+                message += "Error Code: " + error.Number + " - " + error.Message + "\n";
             }
-
-            private void HandleGeneralError(Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-
-        //private void txtSearchBar_KeyUp(object sender, KeyEventArgs e)
-        //{
-        //    // get search
-        //    string search = txtSearchBar.Text.Trim();    //!!how to connect the main dashboard's searchbar to the products form？
-
-        //    searchedProduct = context.Products.Find(search);
-        //    // context is like the entry point
-        //    if (searchedProduct == null) // no such product name
-        //    {
-        //        MessageBox.Show("No Product found ");
-
-        //    }
-        //    else // we have the selected customer; make sure that State is loaded
-        //    {
-        //        // public virtual States StateNavigation { get; set; }
-        //        // [InverseProperty("Customer")]
-        //        if (!context.Entry(searchedProduct)
-        //            .Reference("StateNavigation").IsLoaded)// if State not loaded
-        //        {
-        //            context.Entry(searchedProduct)
-        //            .Reference("StateNavigation").Load(); // load it
-        //        }
-        //        DisplayProducts();
-        //    }
-        //}
+            MessageBox.Show(message, "Data Error(s)");
+        }
     }
 }
