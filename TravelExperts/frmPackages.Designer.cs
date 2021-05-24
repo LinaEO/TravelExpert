@@ -1,5 +1,5 @@
 ﻿
-namespace TravelExperts
+namespace PackagesGUI
 {
     partial class frmPackages
     {
@@ -35,32 +35,30 @@ namespace TravelExperts
             this.btnModify = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lvPackages
             // 
-            this.lvPackages.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
             this.lvPackages.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lvPackages.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lvPackages.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lvPackages.FullRowSelect = true;
             this.lvPackages.HideSelection = false;
-            this.lvPackages.LabelWrap = false;
-            this.lvPackages.Location = new System.Drawing.Point(27, 29);
+            this.lvPackages.Location = new System.Drawing.Point(40, 71);
             this.lvPackages.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.lvPackages.Name = "lvPackages";
-            this.lvPackages.Size = new System.Drawing.Size(1186, 704);
+            this.lvPackages.Size = new System.Drawing.Size(1078, 624);
             this.lvPackages.TabIndex = 0;
             this.lvPackages.UseCompatibleStateImageBehavior = false;
-            this.lvPackages.View = System.Windows.Forms.View.Details;
             this.lvPackages.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvPackages_ItemSelectionChanged);
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.Location = new System.Drawing.Point(27, 782);
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(40, 755);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(159, 96);
+            this.btnAdd.Size = new System.Drawing.Size(161, 79);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -68,11 +66,11 @@ namespace TravelExperts
             // 
             // btnRemove
             // 
-            this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemove.Location = new System.Drawing.Point(620, 782);
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemove.Location = new System.Drawing.Point(612, 755);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(169, 96);
+            this.btnRemove.Size = new System.Drawing.Size(161, 79);
             this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -80,11 +78,11 @@ namespace TravelExperts
             // 
             // btnModify
             // 
-            this.btnModify.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnModify.Location = new System.Drawing.Point(215, 782);
+            this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnModify.Location = new System.Drawing.Point(226, 755);
             this.btnModify.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(172, 96);
+            this.btnModify.Size = new System.Drawing.Size(161, 79);
             this.btnModify.TabIndex = 3;
             this.btnModify.Text = "Update";
             this.btnModify.UseVisualStyleBackColor = true;
@@ -92,11 +90,11 @@ namespace TravelExperts
             // 
             // btnExit
             // 
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnExit.Location = new System.Drawing.Point(1036, 782);
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExit.Location = new System.Drawing.Point(957, 755);
             this.btnExit.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(114, 96);
+            this.btnExit.Size = new System.Drawing.Size(161, 79);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -104,33 +102,50 @@ namespace TravelExperts
             // 
             // btnView
             // 
-            this.btnView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnView.Location = new System.Drawing.Point(415, 782);
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnView.Location = new System.Drawing.Point(412, 755);
+            this.btnView.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(169, 96);
+            this.btnView.Size = new System.Drawing.Size(161, 79);
             this.btnView.TabIndex = 5;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
-            this.btnView.Click += new System.EventHandler(this.btnView_Click_1);
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(40, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(284, 41);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Available Packages";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // frmPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1228, 905);
+            this.ClientSize = new System.Drawing.Size(1151, 850);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lvPackages);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "frmPackages";
-            this.Text = "Packages";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Admin Dashboard";
             this.Load += new System.EventHandler(this.frmPackages_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -142,6 +157,7 @@ namespace TravelExperts
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Label label1;
     }
 }
 

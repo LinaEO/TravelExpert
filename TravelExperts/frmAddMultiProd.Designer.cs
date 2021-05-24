@@ -39,25 +39,25 @@ namespace PackagesGUI
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_ProdUnSelect = new System.Windows.Forms.Button();
+            this.btnClearSelections = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbo_Suppliers
             // 
-            this.lbo_Suppliers.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbo_Suppliers.FormattingEnabled = true;
-            this.lbo_Suppliers.ItemHeight = 41;
-            this.lbo_Suppliers.Location = new System.Drawing.Point(28, 88);
+            this.lbo_Suppliers.ItemHeight = 40;
+            this.lbo_Suppliers.Location = new System.Drawing.Point(28, 71);
             this.lbo_Suppliers.Name = "lbo_Suppliers";
-            this.lbo_Suppliers.Size = new System.Drawing.Size(513, 455);
+            this.lbo_Suppliers.Size = new System.Drawing.Size(351, 404);
             this.lbo_Suppliers.TabIndex = 0;
             this.lbo_Suppliers.SelectedIndexChanged += new System.EventHandler(this.lbo_Suppliers_SelectedIndexChanged);
             // 
             // btn_ProdSelect
             // 
             this.btn_ProdSelect.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ProdSelect.Location = new System.Drawing.Point(896, 163);
+            this.btn_ProdSelect.Location = new System.Drawing.Point(660, 157);
             this.btn_ProdSelect.Name = "btn_ProdSelect";
-            this.btn_ProdSelect.Size = new System.Drawing.Size(122, 65);
+            this.btn_ProdSelect.Size = new System.Drawing.Size(100, 50);
             this.btn_ProdSelect.TabIndex = 3;
             this.btn_ProdSelect.Text = ">>";
             this.btn_ProdSelect.UseVisualStyleBackColor = true;
@@ -66,9 +66,9 @@ namespace PackagesGUI
             // btn_AddProds
             // 
             this.btn_AddProds.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_AddProds.Location = new System.Drawing.Point(248, 590);
+            this.btn_AddProds.Location = new System.Drawing.Point(304, 500);
             this.btn_AddProds.Name = "btn_AddProds";
-            this.btn_AddProds.Size = new System.Drawing.Size(313, 77);
+            this.btn_AddProds.Size = new System.Drawing.Size(292, 66);
             this.btn_AddProds.TabIndex = 4;
             this.btn_AddProds.Text = "Add to Package";
             this.btn_AddProds.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@ namespace PackagesGUI
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCancel.Location = new System.Drawing.Point(896, 590);
+            this.btnCancel.Location = new System.Drawing.Point(730, 500);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(228, 77);
+            this.btnCancel.Size = new System.Drawing.Size(155, 66);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -87,28 +87,26 @@ namespace PackagesGUI
             // 
             // clb_Products
             // 
-            this.clb_Products.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clb_Products.FormattingEnabled = true;
-            this.clb_Products.Location = new System.Drawing.Point(617, 89);
+            this.clb_Products.Location = new System.Drawing.Point(394, 71);
             this.clb_Products.Name = "clb_Products";
-            this.clb_Products.Size = new System.Drawing.Size(244, 444);
+            this.clb_Products.Size = new System.Drawing.Size(249, 391);
             this.clb_Products.TabIndex = 9;
             // 
             // lbo_Selections
             // 
-            this.lbo_Selections.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbo_Selections.FormattingEnabled = true;
-            this.lbo_Selections.ItemHeight = 41;
-            this.lbo_Selections.Location = new System.Drawing.Point(1064, 79);
+            this.lbo_Selections.ItemHeight = 40;
+            this.lbo_Selections.Location = new System.Drawing.Point(809, 71);
             this.lbo_Selections.Name = "lbo_Selections";
-            this.lbo_Selections.Size = new System.Drawing.Size(413, 455);
+            this.lbo_Selections.Size = new System.Drawing.Size(502, 404);
             this.lbo_Selections.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(28, 34);
+            this.label1.Location = new System.Drawing.Point(28, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(262, 41);
             this.label1.TabIndex = 11;
@@ -118,7 +116,7 @@ namespace PackagesGUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(617, 35);
+            this.label2.Location = new System.Drawing.Point(389, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(254, 41);
             this.label2.TabIndex = 12;
@@ -128,7 +126,7 @@ namespace PackagesGUI
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1064, 35);
+            this.label3.Location = new System.Drawing.Point(809, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(275, 41);
             this.label3.TabIndex = 13;
@@ -137,20 +135,31 @@ namespace PackagesGUI
             // btn_ProdUnSelect
             // 
             this.btn_ProdUnSelect.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ProdUnSelect.Location = new System.Drawing.Point(896, 277);
+            this.btn_ProdUnSelect.Location = new System.Drawing.Point(660, 242);
             this.btn_ProdUnSelect.Name = "btn_ProdUnSelect";
-            this.btn_ProdUnSelect.Size = new System.Drawing.Size(122, 73);
+            this.btn_ProdUnSelect.Size = new System.Drawing.Size(100, 58);
             this.btn_ProdUnSelect.TabIndex = 14;
             this.btn_ProdUnSelect.Text = "<<";
             this.btn_ProdUnSelect.UseVisualStyleBackColor = true;
             this.btn_ProdUnSelect.Click += new System.EventHandler(this.btn_ProdUnSelect_Click);
+            // 
+            // btnClearSelections
+            // 
+            this.btnClearSelections.Location = new System.Drawing.Point(660, 331);
+            this.btnClearSelections.Name = "btnClearSelections";
+            this.btnClearSelections.Size = new System.Drawing.Size(100, 69);
+            this.btnClearSelections.TabIndex = 15;
+            this.btnClearSelections.Text = "Clear Selections";
+            this.btnClearSelections.UseVisualStyleBackColor = true;
+            this.btnClearSelections.Click += new System.EventHandler(this.btnClearSelections_Click);
             // 
             // frmAddMultiProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 40F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1519, 689);
+            this.ClientSize = new System.Drawing.Size(1323, 600);
+            this.Controls.Add(this.btnClearSelections);
             this.Controls.Add(this.btn_ProdUnSelect);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -183,5 +192,6 @@ namespace PackagesGUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_ProdUnSelect;
+        private System.Windows.Forms.Button btnClearSelections;
     }
 }

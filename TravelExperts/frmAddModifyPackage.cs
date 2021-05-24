@@ -1,4 +1,4 @@
-﻿
+﻿using TravelExperts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TravelExperts;
 
 namespace PackagesGUI
 {
@@ -17,6 +16,7 @@ namespace PackagesGUI
         public List<int> updated_Product_Selections; //selected package products
         public List<string> Original_Product_selections = new List<string>();
         public bool isAdd; // to differentiate which operation to be performed
+        
         public frmAddModifyPackage()
         {
             InitializeComponent();
@@ -26,8 +26,7 @@ namespace PackagesGUI
         //Form load event hander, depending on the value of isAdd, loads add or modify form
         private void frmAddModifyPackage_Load(object sender, EventArgs e)
         {
-
-
+           
             //distinguish add or modify
             if (this.isAdd)//add
             {
@@ -49,8 +48,8 @@ namespace PackagesGUI
                 var comm = (decimal)package.PkgAgencyCommission;
                 txtComm.Text = comm.ToString("f0");
 
-                // prdForm.currentProductSelections = Original_Product_selections;
-
+               // prdForm.currentProductSelections = Original_Product_selections;
+                
             }
         }
         //Accepting Adding/Modifying changes
@@ -77,6 +76,7 @@ namespace PackagesGUI
                 
                 //set dialog result to ok
                 this.DialogResult = DialogResult.OK;
+               
             }
 
         }
@@ -102,8 +102,8 @@ namespace PackagesGUI
 
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
-            // creating the products form
-             frmAddMultiProd prdForm = new frmAddMultiProd();
+            //creating the products form
+            frmAddMultiProd prdForm = new frmAddMultiProd();
             if (!isAdd)
             {
                 //if it is a modify, display original product selections
@@ -119,7 +119,6 @@ namespace PackagesGUI
             {
                 this.Visible = true;
             }
-
 
         }
     }

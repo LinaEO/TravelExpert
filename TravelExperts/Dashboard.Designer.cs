@@ -39,7 +39,6 @@ namespace TravelExperts
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtSearchBar = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -174,19 +173,6 @@ namespace TravelExperts
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // txtSearchBar
-            // 
-            this.txtSearchBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.txtSearchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearchBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.txtSearchBar.Location = new System.Drawing.Point(805, 45);
-            this.txtSearchBar.Multiline = true;
-            this.txtSearchBar.Name = "txtSearchBar";
-            this.txtSearchBar.Size = new System.Drawing.Size(546, 42);
-            this.txtSearchBar.TabIndex = 1;
-            this.txtSearchBar.Text = "Search for...";
-            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 0;
@@ -214,9 +200,8 @@ namespace TravelExperts
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.lblTitle.Location = new System.Drawing.Point(371, 32);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(330, 69);
+            this.lblTitle.Size = new System.Drawing.Size(0, 69);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Dashboard";
             // 
             // Dashboard
             // 
@@ -227,7 +212,6 @@ namespace TravelExperts
             this.Controls.Add(this.PnlFormLoader);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtSearchBar);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -253,7 +237,6 @@ namespace TravelExperts
         private System.Windows.Forms.Button btnProduct;
         private System.Windows.Forms.Button btnPackages;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtSearchBar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel PnlFormLoader;
         private System.Windows.Forms.PictureBox pictureBox2;

@@ -40,7 +40,7 @@ namespace PackagesGUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 337);
+            this.label1.Location = new System.Drawing.Point(71, 106);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 37);
@@ -50,7 +50,7 @@ namespace PackagesGUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 450);
+            this.label2.Location = new System.Drawing.Point(71, 232);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 37);
@@ -59,8 +59,8 @@ namespace PackagesGUI
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(182, 579);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnOk.Location = new System.Drawing.Point(163, 379);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(6);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(176, 76);
             this.btnOk.TabIndex = 2;
@@ -70,8 +70,8 @@ namespace PackagesGUI
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(450, 579);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancel.Location = new System.Drawing.Point(477, 379);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(176, 76);
             this.btnCancel.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace PackagesGUI
             // lblProductID
             // 
             this.lblProductID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblProductID.Location = new System.Drawing.Point(304, 337);
+            this.lblProductID.Location = new System.Drawing.Point(304, 92);
             this.lblProductID.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblProductID.Name = "lblProductID";
             this.lblProductID.Size = new System.Drawing.Size(225, 63);
@@ -90,8 +90,8 @@ namespace PackagesGUI
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(304, 444);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtProductName.Location = new System.Drawing.Point(304, 232);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(6);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(463, 43);
             this.txtProductName.TabIndex = 5;
@@ -101,15 +101,17 @@ namespace PackagesGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(825, 905);
+            this.ClientSize = new System.Drawing.Size(825, 526);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmAddModifyProduct";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Name";
             this.Load += new System.EventHandler(this.frmAddModifyProduct_Load);
             this.ResumeLayout(false);

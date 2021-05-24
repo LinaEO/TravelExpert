@@ -106,7 +106,6 @@ C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\bin\Debug\netcoreapp
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\TravelExperts.csprojAssemblyReference.cache
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\TravelExperts.Dashboard.resources
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\TravelExperts.frmDashboard.resources
-C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\TravelExperts.frmPackages.resources
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\TravelExperts.Properties.Resources.resources
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\TravelExperts.csproj.GenerateResource.cache
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\TravelExperts.AssemblyInfoInputs.cache
@@ -123,3 +122,4 @@ C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmProducts.resources
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmAddModifySupplier.resources
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmSuppliers.resources
+C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmPackages.resources

@@ -13,12 +13,12 @@ namespace PackagesGUI
     public partial class frmAddMultiProd : Form
     {
         private TravelExpertsContext context = new TravelExpertsContext(); //DB Context object
-                                                                           // private List<string> selected_sup = new List<string>();//keeps track of selected suppliers
-        private List<int> selected_prod = new List<int>(); //keeps track of selected products
-        private List<string> suppliers = new List<string>();//saving all suppliers
-        private List<string> products = new List<string>(); // saving products for each supplier
-        public List<int> prdSupIds = new List<int>();
-        public List<string> currentProductSelections = new List<string>();
+       // private List<string> selected_sup = new List<string>();//keeps track of selected suppliers
+       private List<int> selected_prod = new List<int>(); //keeps track of selected products
+       private List<string> suppliers = new List<string>();//saving all suppliers
+       private List<string> products = new List<string>(); // saving products for each supplier
+       public List<int> prdSupIds = new List<int>();
+       public List<string> currentProductSelections = new List<string>();
 
         public frmAddMultiProd()
         {
@@ -45,7 +45,7 @@ namespace PackagesGUI
                 }
                 //update button text to display that this is an update
                 btn_AddProds.Text = "Update Products";
-
+               
             }
         }
 
@@ -124,8 +124,8 @@ namespace PackagesGUI
             products = (from p in context.Products
                         join ps in context.ProductsSuppliers on p.ProductId equals ps.ProductId
                         join s in context.Suppliers on ps.SupplierId equals s.SupplierId
-                        where s.SupplierId + " | " + s.SupName == lbo_Suppliers.SelectedItem
-                        select p.ProductId + " | " + p.ProdName).ToList();
+                        where  s.SupplierId +" | " +s.SupName  == lbo_Suppliers.SelectedItem
+                        select p.ProductId + " | " +p.ProdName).ToList();
             //Clearing the list to avoid products loaded from previous suppliers selected
             clb_Products.Items.Clear();
             //displaying product list associated with selected supplier

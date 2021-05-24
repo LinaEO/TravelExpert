@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using PackagesGUI;
+using TravelExperts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TravelExperts
+namespace PackagesGUI
 {
     public partial class frmPackages : Form
     {
@@ -20,13 +20,11 @@ namespace TravelExperts
         private List<int> selectedProductsIds; //selected package products 
         private int selected_packageID; // keeps track of selected product for modifying/deleting
 
+
         public frmPackages()
         {
             InitializeComponent();
-
         }
-        
-
         private void frmPackages_Load(object sender, EventArgs e)
         {
             //disabling modify and remove
@@ -35,23 +33,13 @@ namespace TravelExperts
             DisplayLVPackages();
         }
 
-        /// <summary>
-        ///  this function manages disabling/enabling modify and delete buttons
-        /// </summary>
-        /// <param name="status">true to enable buttons, false to disable</param>
-        private void ManageControls(bool status)
-        {
-            btnModify.Enabled = status;
-            btnRemove.Enabled = status;
-        }
-
         private void DisplayLVPackages()
         {
             //first clear the list view
             lvPackages.Clear();
 
             //setting width of listview 
-            lvPackages.Width = 1150;
+            lvPackages.Width = 1130;
             // Declare and construct the ColumnHeader objects.
             ColumnHeader header1, header2, header3, header4, header5, header6;
             header1 = new ColumnHeader();
@@ -64,7 +52,7 @@ namespace TravelExperts
             // Set the text, alignment and width for each column header.
             header1.Text = "ID";
             header1.TextAlign = HorizontalAlignment.Left;
-            header1.Width = 70;
+            header1.Width = 50;
 
             header2.Text = "Name";
             header2.TextAlign = HorizontalAlignment.Left;
@@ -72,19 +60,19 @@ namespace TravelExperts
 
             header3.Text = "Starts";
             header3.TextAlign = HorizontalAlignment.Left;
-            header3.Width = 200;
+            header3.Width = 220;
 
             header4.Text = "Ends";
             header4.TextAlign = HorizontalAlignment.Left;
-            header4.Width = 200;
+            header4.Width =220;
 
             header5.Text = "Base Price";
             header5.TextAlign = HorizontalAlignment.Left;
-            header5.Width = 180;
+            header5.Width = 160;
 
             header6.Text = "Commission";
             header6.TextAlign = HorizontalAlignment.Left;
-            header6.Width = 180;
+            header6.Width = 170;
 
             // Add the headers to the ListView control.
             lvPackages.Columns.Add(header1);
@@ -178,8 +166,8 @@ namespace TravelExperts
                         }
                         context.SaveChanges();
                     }
-
-
+                    
+                    
                     DisplayLVPackages();
                 }
                 catch (DbUpdateException ex)
@@ -190,7 +178,7 @@ namespace TravelExperts
                 {
                     HandleGeneralError(ex);
                 }
-
+                
             }
             ShowForm();
             ClearSelection();
@@ -211,7 +199,7 @@ namespace TravelExperts
             event handler*/
             addModPkg.package = context.Packages.Find(selected_packageID);
             addModPkg.Original_Product_selections = ProductsByPackage(selected_packageID);
-
+            
             //show it modal
             DialogResult result = addModPkg.ShowDialog();//accept returns ok
 
@@ -221,17 +209,17 @@ namespace TravelExperts
                 selectedPackage = addModPkg.package;
                 var updated = addModPkg.updated_Product_Selections;
                 var original = GetProdSuppId_Selections(selected_packageID);
-                if (updated != null)
+                if (updated!=null)
                     selectedProductsIds = updated;
                 else
                     selectedProductsIds = original;
                 try
                 {
-
+                  
                     //remove old selections
                     var pkgProdSuppliers = context.PackagesProductsSuppliers
                     .Where(p => p.PackageId == selected_packageID);
-
+                    
 
                     foreach (var item in pkgProdSuppliers)
                         context.PackagesProductsSuppliers.Remove(item);
@@ -271,17 +259,43 @@ namespace TravelExperts
             ShowForm();
             ClearSelection();
             ManageControls(false);
+
         }
 
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            HideForm();
+            //create second form
+            frmViewPkg secondForm = new frmViewPkg();
+
+            /*retrieving the selected product
+             * selected_package code is retrieved from the lvPackages_ItemSelectionChanged
+            event handler*/
+            secondForm.package = context.Packages.Find(selected_packageID);
+            //retrieving a list of the ProductSupplierID for the selected package
+            secondForm.prodlist = ProductsByPackage(selected_packageID);
+
+            this.Visible = false;
+            //show it modal
+            DialogResult result = secondForm.ShowDialog();//accept returns ok
+            this.Visible = true;
+
+            ShowForm();
+            ClearSelection();
+            ManageControls(false);
+
+        }
+
+        
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             // retrieving product through user selection from lvProducts_ItemSelectionChange event handler
             //int ID = Convert.ToInt32(selected_packageID);
-
+            
             selectedPackage = context.Packages.Find(selected_packageID);
             var pkgProdSuppliers = context.PackagesProductsSuppliers
-                .Where(p => p.PackageId == selected_packageID);
+                .Where(p=> p.PackageId == selected_packageID);
             //get confirmation from the user 
             DialogResult result = MessageBox.Show($"Are you sure you want to delete {selectedPackage.PkgName}?",
                 "Confirm Delete", MessageBoxButtons.YesNo,
@@ -290,11 +304,14 @@ namespace TravelExperts
             {
                 try
                 {
+                    
+                    //remove every PackagesProductSupplier entry associated with the package
+                    foreach(var item in pkgProdSuppliers)
+                        context.PackagesProductsSuppliers.Remove(item);
+                    context.SaveChanges();
+
                     //remove the package 
                     context.Packages.Remove(selectedPackage);
-                    //remove every PackagesProductSupplier entry associated with the package
-                    foreach (var item in pkgProdSuppliers)
-                        context.PackagesProductsSuppliers.Remove(item);
                     context.SaveChanges();
 
                     //display updated listview
@@ -311,6 +328,7 @@ namespace TravelExperts
             }
 
             ManageControls(false);
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -335,28 +353,6 @@ namespace TravelExperts
             MessageBox.Show(ex.Message, ex.GetType().ToString());
         }
 
-        private void btnView_Click_1(object sender, EventArgs e)
-        {
-            HideForm();
-            //create second form
-            frmViewPkg secondForm = new frmViewPkg();
-
-            /*retrieving the selected product
-             * selected_package code is retrieved from the lvPackages_ItemSelectionChanged
-            event handler*/
-            secondForm.package = context.Packages.Find(selected_packageID);
-            //retrieving a list of the ProductSupplierID for the selected package
-            secondForm.prodlist = ProductsByPackage(selected_packageID);
-
-            this.Visible = false;
-            //show it modal
-            DialogResult result = secondForm.ShowDialog();//accept returns ok
-            this.Visible = true;
-
-            ShowForm();
-            ClearSelection();
-            ManageControls(false);
-        }
         private void HideForm()
         {
             this.Visible = false;
@@ -366,7 +362,17 @@ namespace TravelExperts
         {
             this.Visible = true;
         }
-       
+
+        /// <summary>
+        ///  this function manages disabling/enabling modify and delete buttons
+        /// </summary>
+        /// <param name="status">true to enable buttons, false to disable</param>
+        private void ManageControls(bool status)
+        {
+            btnModify.Enabled = status;
+            btnRemove.Enabled = status;
+            btnView.Enabled = status;
+        }
 
         private void ClearSelection()
         {
@@ -400,5 +406,9 @@ namespace TravelExperts
                 Select(psID => psID.ProductSupplierId).ToList();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

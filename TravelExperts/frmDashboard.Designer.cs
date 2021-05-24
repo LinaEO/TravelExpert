@@ -50,7 +50,7 @@ namespace TravelExperts
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label1.Location = new System.Drawing.Point(34, 29);
+            this.label1.Location = new System.Drawing.Point(34, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1110, 69);
             this.label1.TabIndex = 6;
