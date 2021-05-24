@@ -13,15 +13,17 @@ namespace PackagesGUI
     public partial class frmProducts : Form
     {
         private TravelExpertsContext context = new TravelExpertsContext(); //DB Context object
-        private Products selectedProduct;//the current package
-        private List<int> selectedProductsIds; //selected package products
+        private Products selectedProduct;//the current product
+        private List<int> selectedProductsIds; //selected product
         private int selected_productID; // keeps track of selected product for modifying/deleting
 
+
+        //LOADING---------------------------------
         public frmProducts()
         {
             InitializeComponent();
         }
-        
+
         private void frmProducts_Load(object sender, EventArgs e)
         {
             //disabling modify and remove
@@ -29,7 +31,8 @@ namespace PackagesGUI
             //displaying products
             DisplayLVProducts();
         }
-/// <summary>
+        //-------------------CONTROLS--------------------------------------------------
+        /// <summary>
         ///  this function manages disabling/enabling modify and delete buttons
         /// </summary>
         /// <param name="status">true to enable buttons, false to disable</param>
@@ -38,7 +41,7 @@ namespace PackagesGUI
             btnModify.Enabled = status;
             btnRemove.Enabled = status;
         }
-        
+        //-------------------DISPLAY--------------------------------------------------
         private void DisplayLVProducts()
         {
             //first clear the list view
@@ -100,21 +103,21 @@ namespace PackagesGUI
             }
         }
 
+
+        //-------------------ADD SUPPLIER--------------------------------------------------
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //create second form
             frmAddModifyProduct addModifyProduct = new frmAddModifyProduct();
 
-            
-
             // setting isAdd to true to pass it to the second form
             addModifyProduct.isAdd = true;
-            addModifyProduct.product = null; //no package
+            addModifyProduct.product = null; //no product
 
             //show it modal
             DialogResult result = addModifyProduct.ShowDialog();//accept returns ok
 
-            //if dialogresult is ok, save package, and display items in list view
+            //if dialogresult is ok, save product, and display items in list view
             if (result == DialogResult.OK)
             {
                 selectedProduct = addModifyProduct.product;
@@ -124,7 +127,7 @@ namespace PackagesGUI
                     var newProduct = context.Products.Add(selectedProduct);
                     context.SaveChanges();
                     //adding associated products
-                
+
                     DisplayLVProducts();
                 }
                 catch (DbUpdateException ex)
@@ -137,13 +140,11 @@ namespace PackagesGUI
                 }
             }
         }
-
-      
-
+        //-------------------REMOVE OR DELETE PRODUCT --------------------------------------------------
         private void btnRemove_Click(object sender, EventArgs e)
         {
             // retrieving product through user selection from lvProducts_ItemSelectionChange event handler
-            //int ID = Convert.ToInt32(selected_packageID);
+            //int ID = Convert.ToInt32(selected_productID);
 
             selectedProduct = context.Products.Find(selected_productID);
             var products = context.ProductsSuppliers
@@ -156,9 +157,9 @@ namespace PackagesGUI
             {
                 try
                 {
-                    //remove the package
+                    //remove the product
                     context.Products.Remove(selectedProduct);
-                    //remove every PackagesProductSupplier entry associated with the package
+                    //remove every PackagesProductSupplier entry associated with the product
                     foreach (var item in products)
                         context.ProductsSuppliers.Remove(item);
                     context.SaveChanges();
@@ -179,11 +180,7 @@ namespace PackagesGUI
             ManageControls(false);
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        //-------------------MODIFY PRODUCT --------------------------------------------------
         private void btnModify_Click(object sender, EventArgs e)
         {
             //create second form
@@ -193,7 +190,7 @@ namespace PackagesGUI
             secondForm.isAdd = false;
 
             /*retrieving the selected product
-             * selected_package code is retrieved from the lvPackages_ItemSelectionChanged
+             * selected_product code is retrieved from the lvPackages_ItemSelectionChanged
             event handler*/
             secondForm.product = context.Products.Find(selected_productID);
 
@@ -221,10 +218,12 @@ namespace PackagesGUI
             ManageControls(false);
         }
 
-        
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-
-        
+        //-------------------ERRORHANDLING --------------------------------------------------
         //displays error message of unknown (any)error
 
         private void HandleGeneralError(Exception ex)

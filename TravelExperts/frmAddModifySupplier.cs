@@ -18,8 +18,7 @@ namespace PackagesGUI
 
         private bool ValidateUserInput()
         {
-            //Validator.IsNonNegativeInt(txtSupplierID, "Supplier ID");
-            //     Validator.IsPresent(txtSupplierID, "Supplier ID");
+        
             return Validator.IsPresent(txtSupplierName, "Supplier Name");
         }
 
@@ -55,7 +54,6 @@ namespace PackagesGUI
             {
                 this.Text = "Modify Supplier";
                 lblSupplierID.Text = supplier.SupplierId.ToString();
-
                 txtSupplierName.Text = supplier.SupName;
             }
         }
