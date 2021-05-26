@@ -349,7 +349,7 @@ namespace TravelExperts
                 entity.HasIndex(e => e.SupplierId)
                     .HasName("SupplierId");
 
-                entity.Property(e => e.SupplierId).ValueGeneratedNever();
+                //entity.Property(e => e.SupplierId).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<TripTypes>(entity =>

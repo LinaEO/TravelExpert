@@ -129,6 +129,19 @@ namespace TravelExperts
             Application.Exit();
         }
 
-      
+        private void btnProdSupp_Click(object sender, EventArgs e)
+        {
+            panel3.Height = btnProdSupp.Height;
+            panel3.Top = btnProdSupp.Top;
+            panel3.Left = btnProdSupp.Left;
+            btnProdSupp.BackColor = Color.FromArgb(46, 51, 73);
+
+            lblTitle.Text = "Product-Suppliers";
+            this.PnlFormLoader.Controls.Clear();
+            frmProdSupp FrmProdSupp_Vrb = new frmProdSupp() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FrmProdSupp_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(FrmProdSupp_Vrb);
+            FrmProdSupp_Vrb.Show();
+        }
     }
 }

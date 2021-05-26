@@ -37,14 +37,13 @@ namespace TravelExperts
             this.btnPackages = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnProdSupp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +51,7 @@ namespace TravelExperts
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.btnProdSupp);
             this.panel1.Controls.Add(this.btnSupplier);
             this.panel1.Controls.Add(this.btnProduct);
             this.panel1.Controls.Add(this.btnPackages);
@@ -66,22 +66,21 @@ namespace TravelExperts
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.panel3.Location = new System.Drawing.Point(0, 289);
+            this.panel3.Location = new System.Drawing.Point(0, 129);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(23, 150);
             this.panel3.TabIndex = 2;
             // 
             // btnSupplier
             // 
-            this.btnSupplier.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSupplier.FlatAppearance.BorderSize = 0;
             this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupplier.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
-            this.btnSupplier.Location = new System.Drawing.Point(0, 839);
+            this.btnSupplier.Location = new System.Drawing.Point(0, 862);
             this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(347, 188);
+            this.btnSupplier.Size = new System.Drawing.Size(347, 167);
             this.btnSupplier.TabIndex = 1;
             this.btnSupplier.Text = "Suppliers";
             this.btnSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -97,7 +96,7 @@ namespace TravelExperts
             this.btnProduct.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnProduct.Image")));
-            this.btnProduct.Location = new System.Drawing.Point(0, 658);
+            this.btnProduct.Location = new System.Drawing.Point(0, 504);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(347, 181);
             this.btnProduct.TabIndex = 1;
@@ -115,7 +114,7 @@ namespace TravelExperts
             this.btnPackages.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPackages.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPackages.Image = global::TravelExperts.Properties.Resources.packages;
-            this.btnPackages.Location = new System.Drawing.Point(0, 471);
+            this.btnPackages.Location = new System.Drawing.Point(0, 317);
             this.btnPackages.Name = "btnPackages";
             this.btnPackages.Size = new System.Drawing.Size(347, 187);
             this.btnPackages.TabIndex = 1;
@@ -133,7 +132,7 @@ namespace TravelExperts
             this.btnDashboard.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
-            this.btnDashboard.Location = new System.Drawing.Point(0, 277);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 123);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(347, 194);
             this.btnDashboard.TabIndex = 1;
@@ -145,23 +144,12 @@ namespace TravelExperts
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(347, 277);
+            this.panel2.Size = new System.Drawing.Size(347, 123);
             this.panel2.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(95, 96);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 123);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -203,6 +191,23 @@ namespace TravelExperts
             this.lblTitle.Size = new System.Drawing.Size(0, 69);
             this.lblTitle.TabIndex = 4;
             // 
+            // btnProdSupp
+            // 
+            this.btnProdSupp.FlatAppearance.BorderSize = 0;
+            this.btnProdSupp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdSupp.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnProdSupp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnProdSupp.Image = global::TravelExperts.Properties.Resources.user;
+            this.btnProdSupp.Location = new System.Drawing.Point(0, 689);
+            this.btnProdSupp.Name = "btnProdSupp";
+            this.btnProdSupp.Size = new System.Drawing.Size(347, 167);
+            this.btnProdSupp.TabIndex = 1;
+            this.btnProdSupp.Text = "Product-Supplier";
+            this.btnProdSupp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnProdSupp.UseVisualStyleBackColor = true;
+            this.btnProdSupp.Click += new System.EventHandler(this.btnProdSupp_Click);
+            this.btnProdSupp.Leave += new System.EventHandler(this.btnSupplier_Leave);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
@@ -220,7 +225,6 @@ namespace TravelExperts
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -232,7 +236,6 @@ namespace TravelExperts
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSupplier;
         private System.Windows.Forms.Button btnProduct;
         private System.Windows.Forms.Button btnPackages;
@@ -241,6 +244,7 @@ namespace TravelExperts
         private System.Windows.Forms.Panel PnlFormLoader;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnProdSupp;
     }
 }
 

@@ -120,6 +120,8 @@ C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmAddModifyPackage.resources
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmAddModifyProduct.resources
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmProducts.resources
-C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmAddModifySupplier.resources
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmSuppliers.resources
 C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmPackages.resources
+C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\PackagesGUI.frmAddModifySupplier.resources
+C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\TravelExperts.frmAddModifyProdSupp.resources
+C:\Users\dongd\Desktop\Git Local\TravelExpert\TravelExperts\obj\Debug\netcoreapp3.1\TravelExperts.frmProdSupp.resources

@@ -62,6 +62,7 @@ namespace PackagesGUI
             this.listViewSuppliers.TabIndex = 1;
             this.listViewSuppliers.UseCompatibleStateImageBehavior = false;
             this.listViewSuppliers.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listViewSuppliers_ItemSelectionChanged);
+            this.listViewSuppliers.SelectedIndexChanged += new System.EventHandler(this.listViewSuppliers_SelectedIndexChanged);
             // 
             // btnAdd
             // 

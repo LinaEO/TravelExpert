@@ -69,7 +69,7 @@ namespace PackagesGUI
             // txtSupplierName
             // 
             this.txtSupplierName.Location = new System.Drawing.Point(317, 278);
-            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(6);
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(463, 43);
             this.txtSupplierName.TabIndex = 3;
@@ -77,7 +77,7 @@ namespace PackagesGUI
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(446, 434);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(176, 81);
             this.btnCancel.TabIndex = 4;
@@ -88,7 +88,7 @@ namespace PackagesGUI
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(114, 434);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(6);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(176, 81);
             this.btnOk.TabIndex = 5;
@@ -109,9 +109,10 @@ namespace PackagesGUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmAddModifySupplier";
-            this.Text = "frmAddModifySupplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Add/Modify Supplier";
             this.Load += new System.EventHandler(this.frmAddModifySupplier_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();

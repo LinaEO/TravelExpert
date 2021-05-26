@@ -45,7 +45,7 @@ namespace PackagesGUI
             listViewProducts.Clear();
 
             //setting width of listview
-            listViewProducts.Width = 1000;
+            listViewProducts.Width = 1100;
             // Declare and construct the ColumnHeader objects.
             ColumnHeader header1, header2;
             header1 = new ColumnHeader();
@@ -58,7 +58,7 @@ namespace PackagesGUI
 
             header2.Text = "Name";
             header2.TextAlign = HorizontalAlignment.Left;
-            header2.Width = 550;
+            header2.Width = 800;
 
             // Add the headers to the ListView control.
             listViewProducts.Columns.Add(header1);

@@ -7,6 +7,9 @@
     <Compile Update="frmAddModifyPackage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmAddModifyProdSupp.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmAddModifyProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,6 +23,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmPackages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmProdSupp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmProducts.cs">

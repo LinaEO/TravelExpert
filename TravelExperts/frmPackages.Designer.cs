@@ -54,7 +54,7 @@ namespace PackagesGUI
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.Location = new System.Drawing.Point(40, 755);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnAdd.Name = "btnAdd";
@@ -66,7 +66,7 @@ namespace PackagesGUI
             // 
             // btnRemove
             // 
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRemove.Location = new System.Drawing.Point(612, 755);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnRemove.Name = "btnRemove";
@@ -78,7 +78,7 @@ namespace PackagesGUI
             // 
             // btnModify
             // 
-            this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnModify.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnModify.Location = new System.Drawing.Point(226, 755);
             this.btnModify.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnModify.Name = "btnModify";
@@ -90,7 +90,7 @@ namespace PackagesGUI
             // 
             // btnExit
             // 
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnExit.Location = new System.Drawing.Point(957, 755);
             this.btnExit.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnExit.Name = "btnExit";
@@ -102,7 +102,7 @@ namespace PackagesGUI
             // 
             // btnView
             // 
-            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnView.Location = new System.Drawing.Point(412, 755);
             this.btnView.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnView.Name = "btnView";
