@@ -218,6 +218,8 @@ namespace PackagesGUI
                 {
                     HandleGeneralError(ex);
                 }
+
+                ManageControls(false);
             }
         }
 
