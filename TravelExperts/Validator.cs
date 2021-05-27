@@ -16,6 +16,23 @@ namespace TravelExperts
     /// </summary>
     public static class Validator
     {
+
+        private static string title = "Entry Error";
+
+        /// <summary>
+        /// The title that will appear in dialog boxes.
+        /// </summary>
+        public static string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                title = value;
+            }
+        }
         /// <summary>
         /// validates if textbox has something in it
         /// </summary>
@@ -49,12 +66,43 @@ namespace TravelExperts
         }
 
         /// <summary>
-        /// validates if textbox contains non-negative decimal
+        /// Checks whether the user entered data into a text box.
         /// </summary>
-        /// <param name="tb">text box to validate</param>
-        /// <param name="name">name for error message</param>
-        /// <returns>true if valid, and false if not</returns>
-        public static bool IsNonNegativeDecimal(TextBox tb, string name)
+        /// <param name="textBox">The text box control to be validated.</param>
+        /// <returns>True if the user has entered data.</returns>
+        public static bool IsPresentCBO(Control control)
+        {
+            if (control.GetType().ToString() == "System.Windows.Forms.TextBox")
+            {
+                TextBox textBox = (TextBox)control;
+                if (textBox.Text == "")
+                {
+                    MessageBox.Show(textBox.Tag + " is a required field.", Title);
+                    textBox.Focus();
+                    return false;
+                }
+            }
+            else if (control.GetType().ToString() == "System.Windows.Forms.ComboBox")
+            {
+                ComboBox comboBox = (ComboBox)control;
+                if (comboBox.SelectedIndex == -1)
+                {
+                    MessageBox.Show(comboBox.Tag + " is a required field.", "Entry Error");
+                    comboBox.Focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+            /// <summary>
+            /// validates if textbox contains non-negative decimal
+            /// </summary>
+            /// <param name="tb">text box to validate</param>
+            /// <param name="name">name for error message</param>
+            /// <returns>true if valid, and false if not</returns>
+            public static bool IsNonNegativeDecimal(TextBox tb, string name)
         {
             bool isValid = true; // "innocent until proven guilty"
             decimal value;
@@ -131,5 +179,8 @@ namespace TravelExperts
             }
             return isValid;
         }
+
+
+
     } // class
 }// namespace
