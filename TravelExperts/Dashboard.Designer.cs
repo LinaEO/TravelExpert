@@ -32,6 +32,7 @@ namespace TravelExperts
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnProdSupp = new System.Windows.Forms.Button();
             this.btnSupplier = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnPackages = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@ namespace TravelExperts
             this.button1 = new System.Windows.Forms.Button();
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnProdSupp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -50,8 +50,8 @@ namespace TravelExperts
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnProdSupp);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnSupplier);
             this.panel1.Controls.Add(this.btnProduct);
             this.panel1.Controls.Add(this.btnPackages);
@@ -71,14 +71,33 @@ namespace TravelExperts
             this.panel3.Size = new System.Drawing.Size(23, 150);
             this.panel3.TabIndex = 2;
             // 
+            // btnProdSupp
+            // 
+            this.btnProdSupp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProdSupp.FlatAppearance.BorderSize = 0;
+            this.btnProdSupp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdSupp.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnProdSupp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnProdSupp.Image = global::TravelExperts.Properties.Resources.user;
+            this.btnProdSupp.Location = new System.Drawing.Point(0, 852);
+            this.btnProdSupp.Name = "btnProdSupp";
+            this.btnProdSupp.Size = new System.Drawing.Size(347, 167);
+            this.btnProdSupp.TabIndex = 1;
+            this.btnProdSupp.Text = "Product-Supplier";
+            this.btnProdSupp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnProdSupp.UseVisualStyleBackColor = true;
+            this.btnProdSupp.Click += new System.EventHandler(this.btnProdSupp_Click);
+            this.btnProdSupp.Leave += new System.EventHandler(this.btnProdSupp_Leave);
+            // 
             // btnSupplier
             // 
+            this.btnSupplier.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSupplier.FlatAppearance.BorderSize = 0;
             this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupplier.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
-            this.btnSupplier.Location = new System.Drawing.Point(0, 862);
+            this.btnSupplier.Location = new System.Drawing.Point(0, 685);
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Size = new System.Drawing.Size(347, 167);
             this.btnSupplier.TabIndex = 1;
@@ -191,23 +210,6 @@ namespace TravelExperts
             this.lblTitle.Size = new System.Drawing.Size(0, 69);
             this.lblTitle.TabIndex = 4;
             // 
-            // btnProdSupp
-            // 
-            this.btnProdSupp.FlatAppearance.BorderSize = 0;
-            this.btnProdSupp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdSupp.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnProdSupp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnProdSupp.Image = global::TravelExperts.Properties.Resources.user;
-            this.btnProdSupp.Location = new System.Drawing.Point(0, 689);
-            this.btnProdSupp.Name = "btnProdSupp";
-            this.btnProdSupp.Size = new System.Drawing.Size(347, 167);
-            this.btnProdSupp.TabIndex = 1;
-            this.btnProdSupp.Text = "Product-Supplier";
-            this.btnProdSupp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnProdSupp.UseVisualStyleBackColor = true;
-            this.btnProdSupp.Click += new System.EventHandler(this.btnProdSupp_Click);
-            this.btnProdSupp.Leave += new System.EventHandler(this.btnSupplier_Leave);
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
@@ -238,13 +240,14 @@ namespace TravelExperts
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSupplier;
         private System.Windows.Forms.Button btnProduct;
+        private System.Windows.Forms.Button btnProdSupp;
         private System.Windows.Forms.Button btnPackages;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel PnlFormLoader;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button btnProdSupp;
+        
     }
 }
 

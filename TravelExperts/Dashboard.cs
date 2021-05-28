@@ -12,8 +12,10 @@ using PackagesGUI;
 
 namespace TravelExperts
 {
+    //interface design ----Doris
     public partial class Dashboard : Form
     {
+        //create round corner of the app
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn(
@@ -25,6 +27,7 @@ namespace TravelExperts
             int nHeightEllipse);
         public Dashboard()
         {
+            //set the Dashiboard panel size equals every sub-form
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             panel3.Height = btnDashboard.Height;
@@ -39,7 +42,7 @@ namespace TravelExperts
             this.PnlFormLoader.Controls.Add(FrmDashboard_Vrb);
             FrmDashboard_Vrb.Show();
         }
-
+        //set the active area background color when it is not selected
         private void btnDashboard_Leave(object sender, EventArgs e)
         {
             btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
@@ -54,14 +57,18 @@ namespace TravelExperts
         {
             btnProduct.BackColor = Color.FromArgb(24, 30, 54);
         }
+        private void btnProdSupp_Leave(object sender, EventArgs e)
+        {
+            btnPackages.BackColor = Color.FromArgb(24, 30, 54);
+        }
 
         private void btnSupplier_Leave(object sender, EventArgs e)
         {
             btnSupplier.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        
-
+       
+        //active bar activate effect
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             panel3.Height = btnDashboard.Height;
@@ -121,14 +128,6 @@ namespace TravelExperts
             this.PnlFormLoader.Controls.Add(FrmSuppliers_Vrb);
             FrmSuppliers_Vrb.Show();
         }
-
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void btnProdSupp_Click(object sender, EventArgs e)
         {
             panel3.Height = btnProdSupp.Height;
@@ -143,5 +142,15 @@ namespace TravelExperts
             this.PnlFormLoader.Controls.Add(FrmProdSupp_Vrb);
             FrmProdSupp_Vrb.Show();
         }
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+       
+        
     }
 }

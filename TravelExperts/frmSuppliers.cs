@@ -9,6 +9,7 @@ using TravelExperts;
 
 namespace PackagesGUI
 {
+    //Tamika & Lina
     public partial class frmSuppliers : Form
     {
         private TravelExpertsContext context = new TravelExpertsContext(); //DB Context object

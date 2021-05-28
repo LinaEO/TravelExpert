@@ -39,7 +39,7 @@ namespace TravelExperts
         public virtual DbSet<SupplierContacts> SupplierContacts { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<TripTypes> TripTypes { get; set; }
-
+       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -56,6 +56,7 @@ namespace TravelExperts
                 entity.HasKey(e => e.AffilitationId)
                     .HasName("aaaaaAffiliations_PK")
                     .IsClustered(false);
+                   
             });
 
             modelBuilder.Entity<Agents>(entity =>
@@ -63,6 +64,7 @@ namespace TravelExperts
                 entity.HasOne(d => d.Agency)
                     .WithMany(p => p.Agents)
                     .HasForeignKey(d => d.AgencyId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_Agents_Agencies");
             });
 
@@ -94,26 +96,31 @@ namespace TravelExperts
                 entity.HasOne(d => d.Booking)
                     .WithMany(p => p.BookingDetails)
                     .HasForeignKey(d => d.BookingId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_BookingDetails_Bookings");
 
                 entity.HasOne(d => d.Class)
                     .WithMany(p => p.BookingDetails)
                     .HasForeignKey(d => d.ClassId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_BookingDetails_Classes");
 
                 entity.HasOne(d => d.Fee)
                     .WithMany(p => p.BookingDetails)
                     .HasForeignKey(d => d.FeeId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_BookingDetails_Fees");
 
                 entity.HasOne(d => d.ProductSupplier)
                     .WithMany(p => p.BookingDetails)
                     .HasForeignKey(d => d.ProductSupplierId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_BookingDetails_Products_Suppliers");
 
                 entity.HasOne(d => d.Region)
                     .WithMany(p => p.BookingDetails)
                     .HasForeignKey(d => d.RegionId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_BookingDetails_Regions");
             });
 
@@ -137,16 +144,19 @@ namespace TravelExperts
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("Bookings_FK00");
 
                 entity.HasOne(d => d.Package)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.PackageId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("Bookings_FK01");
 
                 entity.HasOne(d => d.TripType)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.TripTypeId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("Bookings_FK02");
             });
 
@@ -185,6 +195,7 @@ namespace TravelExperts
                 entity.HasOne(d => d.Agent)
                     .WithMany(p => p.Customers)
                     .HasForeignKey(d => d.AgentId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_Customers_Agents");
             });
 
@@ -289,11 +300,13 @@ namespace TravelExperts
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.ProductsSuppliers)
                     .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("Products_Suppliers_FK00");
 
                 entity.HasOne(d => d.Supplier)
                     .WithMany(p => p.ProductsSuppliers)
                     .HasForeignKey(d => d.SupplierId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("Products_Suppliers_FK01");
             });
 
@@ -332,11 +345,13 @@ namespace TravelExperts
                 entity.HasOne(d => d.Affiliation)
                     .WithMany(p => p.SupplierContacts)
                     .HasForeignKey(d => d.AffiliationId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("SupplierContacts_FK00");
 
                 entity.HasOne(d => d.Supplier)
                     .WithMany(p => p.SupplierContacts)
                     .HasForeignKey(d => d.SupplierId)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("SupplierContacts_FK01");
             });
 

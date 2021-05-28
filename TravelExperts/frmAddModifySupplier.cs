@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace PackagesGUI
 {
+    //Tamika & Lina
     public partial class frmAddModifySupplier : Form
     {
         public Suppliers supplier = null;

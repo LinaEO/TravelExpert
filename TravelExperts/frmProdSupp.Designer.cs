@@ -33,79 +33,85 @@ namespace TravelExperts
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.listViewProdSupp = new System.Windows.Forms.ListView();
+            this.listBoxProdSupp = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnExit.Location = new System.Drawing.Point(980, 715);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(6);
+            this.btnExit.Location = new System.Drawing.Point(981, 714);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(185, 90);
+            this.btnExit.Size = new System.Drawing.Size(186, 91);
             this.btnExit.TabIndex = 10;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
             // 
             // btnRemove
             // 
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRemove.Location = new System.Drawing.Point(536, 718);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(6);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(189, 84);
+            this.btnRemove.Size = new System.Drawing.Size(189, 83);
             this.btnRemove.TabIndex = 9;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click_1);
             // 
             // btnModify
             // 
             this.btnModify.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnModify.Location = new System.Drawing.Point(286, 715);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(6);
+            this.btnModify.Location = new System.Drawing.Point(287, 714);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(188, 84);
+            this.btnModify.Size = new System.Drawing.Size(188, 83);
             this.btnModify.TabIndex = 8;
             this.btnModify.Text = "Update";
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click_1);
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.Location = new System.Drawing.Point(67, 715);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(6);
+            this.btnAdd.Location = new System.Drawing.Point(68, 714);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(176, 84);
+            this.btnAdd.Size = new System.Drawing.Size(176, 83);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // listViewProdSupp
+            // listBoxProdSupp
             // 
-            this.listViewProdSupp.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.listViewProdSupp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listViewProdSupp.FullRowSelect = true;
-            this.listViewProdSupp.HideSelection = false;
-            this.listViewProdSupp.Location = new System.Drawing.Point(67, 35);
-            this.listViewProdSupp.Margin = new System.Windows.Forms.Padding(6);
-            this.listViewProdSupp.Name = "listViewProdSupp";
-            this.listViewProdSupp.Size = new System.Drawing.Size(1098, 655);
-            this.listViewProdSupp.TabIndex = 11;
-            this.listViewProdSupp.UseCompatibleStateImageBehavior = false;
+            this.listBoxProdSupp.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.listBoxProdSupp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxProdSupp.FormattingEnabled = true;
+            this.listBoxProdSupp.ItemHeight = 41;
+            this.listBoxProdSupp.Location = new System.Drawing.Point(68, 44);
+            this.listBoxProdSupp.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxProdSupp.Name = "listBoxProdSupp";
+            this.listBoxProdSupp.Size = new System.Drawing.Size(1095, 578);
+            this.listBoxProdSupp.TabIndex = 12;
+            this.listBoxProdSupp.SelectedIndexChanged += new System.EventHandler(this.listBoxProdSupp_SelectedIndexChanged);
             // 
             // frmProdSupp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1212, 840);
-            this.Controls.Add(this.listViewProdSupp);
+            this.ClientSize = new System.Drawing.Size(1211, 840);
+            this.Controls.Add(this.listBoxProdSupp);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnAdd);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmProdSupp";
             this.Text = "frmProdSupp";
+            this.Load += new System.EventHandler(this.frmProdSupp_Load);
             this.ResumeLayout(false);
 
         }
@@ -116,6 +122,6 @@ namespace TravelExperts
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.ListView listViewProdSupp;
+        private System.Windows.Forms.ListBox listBoxProdSupp;
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace PackagesGUI
-{
+{//Tamika
     public partial class frmAddModifyProduct : Form
     {
         public Products product = null;
