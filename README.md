@@ -27,7 +27,7 @@ The agents can
 
 Travel Expert Application connect to TravelExperts Database in MSSQL.
 
-* Run query to create an populate Database (travelexperts-mssql)
+* Run query to create and populate Database (travelexperts-mssql)
 
 <img src="screenshots/DB.png" width="100%" alt="view"></img>
 
