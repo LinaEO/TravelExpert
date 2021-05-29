@@ -34,11 +34,11 @@ Travel Expert Application connect to TravelExperts Database in MSSQL.
 
 ## Application
 
-<img src="screenshots/travelexperts.gif" width="100%" alt="view"></img>
+<img src="screenshots/travelexpert.gif" width="100%" alt="view"></img>
 
 ### Dashboard
 
-<img src="screenshots/Dashboard.gif" width="100%" alt="view"></img>
+<img src="screenshots/Dashboard.png" width="100%" alt="view"></img>
 
 ### Packages
 
@@ -54,7 +54,7 @@ Travel Expert Application connect to TravelExperts Database in MSSQL.
 ### Suppliers
 
 <img src="screenshots/Suppliers.png" width="100%" alt="view"></img>
-<img src="screenshots/Suppliers1.gif" width="100%" alt="view"></img>
+<img src="screenshots/Suppliers1.png" width="100%" alt="view"></img>
 
 ### Product_Suppliers
 
