@@ -34,7 +34,7 @@ Travel Expert Application connect to TravelExperts Database in MSSQL.
 
 ## Application
 
-<img src="screenshots/travelexpert.gif" width="100%" alt="view"></img>
+<img src="screenshots/TravelExpert.gif" width="100%" alt="view"></img>
 
 ### Dashboard
 
@@ -43,21 +43,21 @@ Travel Expert Application connect to TravelExperts Database in MSSQL.
 ### Packages
 
 <img src="screenshots/Packages.png" width="100%" alt="view"></img>
-<img src="screenshots/Packages1.png" width="100%" alt="view"></img>
-<img src="screenshots/Packages2.png" width="100%" alt="view"></img>
+<img src="screenshots/Packages1.png" width="50%" alt="view"></img>
+<img src="screenshots/Packages2.png" width="50%" alt="view"></img>
 
 ### Products
 
 <img src="screenshots/Products.png" width="100%" alt="view"></img>
-<img src="screenshots/Products1.png" width="100%" alt="view"></img>
+<img src="screenshots/Products1.png" width="50%" alt="view"></img>
 
 ### Suppliers
 
 <img src="screenshots/Suppliers.png" width="100%" alt="view"></img>
-<img src="screenshots/Suppliers1.png" width="100%" alt="view"></img>
+<img src="screenshots/Suppliers1.png" width="50%" alt="view"></img>
 
 ### Product_Suppliers
 
 <img src="screenshots/ProductSuppliers.png" width="100%" alt="view"></img>
-<img src="screenshots/ProductSuppliers1.png" width="100%" alt="view"></img>
+<img src="screenshots/ProductSuppliers1.png" width="50%" alt="view"></img>
 
