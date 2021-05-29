@@ -44,7 +44,7 @@ Travel Expert Application connect to TravelExperts Database in MSSQL.
 
 <img src="screenshots/Packages.png" width="100%" alt="view"></img>
 <img src="screenshots/Packages1.png" width="50%" alt="view"></img>
-<img src="screenshots/Packages2.png" width="50%" alt="view"></img>
+<img src="screenshots/Packages2.png" width="100%" alt="view"></img>
 
 ### Products
 
